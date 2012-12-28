@@ -7,17 +7,17 @@ var Panel = Class.create({
         settings = $.extend({}, defaultSettings, settings || {});
     },
 
-    appendBoxValue: function() {
+    appendBoxValue: function(settings) {
         if (settings.value) {
-            obj.append($('<div class="boxValue">'+settings.value+'</div>'));
-            obj.find('.boxValue').css('line-height', obj.height()+"px");
+            object.append($('<div class="boxValue">'+settings.value+'</div>'));
+            object.find('.boxValue').css('line-height', object.height()+"px");
         }
     },
 
 
-    appendBoxLabel: function() {
+    appendBoxLabel: function(settings) {
         if (settings.label) {
-            obj.append($('<div class="boxLabel">'+settings.label+'</div>'));
+            object.append($('<div class="boxLabel">'+settings.label+'</div>'));
         }
     }
 })

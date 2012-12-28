@@ -9,11 +9,7 @@
         var defaultSettings = {};
 
         this.initialize = function() {
-        console.log('ahsioahsio');
-
         };
-
-
 
         return self.initialize();
     }
@@ -27,9 +23,9 @@
         var timePanel = new TimePanel(this, settings);
     }
 
-    $.fn.svgBarGraphPanel = function(settings) {
+    $.fn.svgLineBarGraphPanel = function(settings) {
 
-        var svgBarGraphPanel = new SVGBarGraphPanel(this, settings);
+        var svgLineBarGraphPanel = new SVGLineBarGraphPanel(this, settings);
     }
 
     $.fn.svgCakeGraphPanel = function(settings) {

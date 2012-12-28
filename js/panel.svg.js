@@ -1,56 +1,56 @@
-function SVGPanel(obj, settings, variables)
-{
-    var self = this;
+var SVGPanel = Panel.extend({
 
-    var defaultSettings = {
-        svgns: "http://www.w3.org/2000/svg",
-        width: '300',
-        height: '150'
-    };
+    object: null,
 
-    self.svgns = null;
+    svgns: null,
 
-    self.width = null;
-    self.height = null;
+    width: null,
+    height: null,
 
-    self.elementId = null;
-    self.svgId = null;
-    self.svgElement = null;
+    elementId: null,
+    svgId: null,
+    svgElement: null,
 
-    settings = $.extend({}, defaultSettings, settings || {});
+    defaultSettings: {},
 
-    $.extend(this, new BasePanel());
 
-    this.init = function() {
+    init: function(obj, settings) {
 
-        self.svgns = settings.svgns;
+        object = obj;
 
-        self.width = obj.width();
-        self.height = obj.height();
+        defaultSettings= {
+            svgns: 'http://www.w3.org/2000/svg',
+            width: '300',
+            height: '150'
+        };
 
-        self.elementId = obj.attr('id');
+        settings = $.extend({}, defaultSettings, settings || {});
 
-        self.svgId = 'svg'+self.elementId;
+        svgns = settings.svgns;
 
-        obj.html('<svg id="'+self.svgId+'" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>');
+        width = object.width();
+        height = object.height();
 
-        self.svgElement = $("#"+self.svgId);
-        self.svgElement.attr('width', self.width+"px");
-        self.svgElement.attr('height', self.height+"px");
+        elementId = object.attr('id');
 
-    }
+        svgId = 'svg'+elementId;
 
-    this.resizeSvgElement = function(width, height) {
-        self.svgElement.attr('width', width+"px");
-        self.svgElement.attr('height', height+"px");
-    }
+        object.html('<svg id="'+svgId+'" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>');
 
-    this.getSvgElement = function()
+        svgElement = $("#"+svgId);
+        svgElement.attr('width', width+"px");
+        svgElement.attr('height', height+"px");
+
+    },
+
+
+    resizeSvgElement: function(width, height)
     {
-        return self.svgElement;
-    }
+        svgElement.attr('width', width+"px");
+        svgElement.attr('height', height+"px");
+    },
 
-    this.getMaxValueFromData = function(data)
+    getMaxValueFromData: function(data)
     {
         var maxValue = 0;
 
@@ -61,19 +61,4 @@ function SVGPanel(obj, settings, variables)
         return maxValue;
     }
 
-    this.appendBoxValue = function() {
-        if (settings.value) {
-            obj.append($('<div class="boxValue">'+settings.value+'</div>'));
-            obj.find('.boxValue').css('line-height', obj.height()+"px");
-        }
-    }
-
-    this.appendBoxLabel = function() {
-        if (settings.label) {
-            obj.append($('<div class="boxLabel">'+settings.label+'</div>'));
-        }
-    }
-
-
-    return this.init();
-}
+});

@@ -1,25 +1,14 @@
-function SVGCakeGraphPanel(obj, settings)
-{
-    var self = this;
+var SVGCakeGraphPanel = SVGPanel.extend({
 
-    var defaultSettings = {};
+    init: function(obj, settings) {
 
-    var svgElement;
+        object = obj;
 
-    $.extend(this, new SVGPanel(obj, settings));
+        if (!settings.values) {
+            return false;
+        }
 
-    settings = $.extend({}, defaultSettings, settings || {});
-
-    if (!settings.values) {
-        return false;
-    }
-
-    svgInit = this.init;
-
-    this.init = function() {
-
-        initSettings = svgInit();
-        settings = $.extend({}, settings, initSettings);
+        this._super(obj, settings);
 
         var numElements = settings.values.length;
 
@@ -67,7 +56,7 @@ function SVGCakeGraphPanel(obj, settings)
             path.setAttributeNS(null, "stroke", colorAdd);
             path.setAttributeNS(null, "stroke-width", '0.5');
 
-            self.getSvgElement().append(path);
+            svgElement.append(path);
         }
 
 
@@ -76,7 +65,4 @@ function SVGCakeGraphPanel(obj, settings)
         }
 
     }
-
-    return this.init();
-
-}
+});
