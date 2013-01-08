@@ -8,8 +8,6 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
 
         WDB.Panel.SVG.prototype.initialize(obj, settings);
 
-        this.data = this.settings.values;
-
         this.draw();
 
     },
@@ -33,17 +31,16 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
         var sumAngle = 0;
         var centerX, centerY, startX, startY, endX, endY;
 
-        //for (i = 0; i < numElements; i++) {
-        for (i = 0; i < 1; i++) {
+        centerX = (this.width/2);
+        centerY = (this.height-15);
 
-            var path = document.createElementNS(this.svgns, "path");
+        for (i = 0; i < numElements; i++) {
+
+            var path = document.createElementNS(this.settings.svgns, "path");
 
             var angle = Math.PI * (this.data[i]/sumValues);
-
             sumAngle += angle;
 
-            centerX = (this.width/2);
-            centerY = (this.height-15);
 
             if (i == 0) {
                 startX = centerX - length;
@@ -56,17 +53,16 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
             endX = centerX - Math.cos(sumAngle)*length;
             endY = centerY - Math.sin(sumAngle)*length;
 
-            path.setAttributeNS(null, "d", "M"+centerX+" "+centerY+" L"+startX+" "+startY+" A"+length+","+length+" 0 0,1 "+endX+","+endY+" Z");
+            path.setAttributeNS(null, "d", "M"+centerX+" "+centerY+" L"+startX+" "+startY+" A"+length+" "+length+" 0 0 1 "+endX+" "+endY+" Z");
             path.setAttributeNS(null, "fill", (i % 2 == 0) ? colorEven : colorAdd);
             path.setAttributeNS(null, "stroke", colorAdd);
-            path.setAttributeNS(null, "stroke-width", '5');
+            path.setAttributeNS(null, "stroke-width", '0.5');
 
             this.svgElement.append(path);
         }
 
-        if (this.settings.label) {
-            this.object.append($('<div class="boxLabel">'+this.settings.label+'</div>'));
-        }
+        this.appendBoxLabel();
+
 
     }
 });

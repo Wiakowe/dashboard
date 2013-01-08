@@ -39,6 +39,8 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
         this.svgElement.attr('width', this.width+"px");
         this.svgElement.attr('height', this.height+"px");
 
+        this.data = this.settings.values;
+
         this.draw();
 
     },

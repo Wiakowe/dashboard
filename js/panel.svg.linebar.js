@@ -8,8 +8,6 @@ WDB.Panel.SVG.LineBar = WDB.Class(WDB.Panel.SVG, {
 
         WDB.Panel.SVG.prototype.initialize(obj, settings);
 
-        this.data = this.settings.values;
-
         this.draw();
     },
 
