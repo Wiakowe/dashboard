@@ -4,11 +4,15 @@
     <list default="true" id="245deb92-5b1f-4b26-8fcf-9d66d219decc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/class.js" afterPath="$PROJECT_DIR$/js/class.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/dashboard.js" afterPath="$PROJECT_DIR$/js/dashboard.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery.svg.js" afterPath="$PROJECT_DIR$/js/jquery.svg.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/panel.js" afterPath="$PROJECT_DIR$/js/panel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/panel.svg.cake.js" afterPath="$PROJECT_DIR$/js/panel.svg.cake.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/panel.svg.js" afterPath="$PROJECT_DIR$/js/panel.svg.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/panel.svg.linebar.js" afterPath="$PROJECT_DIR$/js/panel.svg.linebar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/panel.text.js" afterPath="$PROJECT_DIR$/js/panel.text.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/panel.time.js" afterPath="$PROJECT_DIR$/js/panel.time.js" />
     </list>
     <ignored path="svg.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,28 +32,37 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dashboard.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/dashboard.js">
+      <file leaf-file-name="panel.text.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/panel.text.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1695" selection-end="1695" vertical-scroll-proportion="0.0">
+            <state line="14" column="0" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="10" selection-start="3155" selection-end="3155" vertical-scroll-proportion="0.9423077">
+            <state line="106" column="12" selection-start="3237" selection-end="3237" vertical-scroll-proportion="-11.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="panel.svg.cake.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/panel.svg.cake.js">
+      <file leaf-file-name="panel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/panel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+            <state line="44" column="1" selection-start="22" selection-end="931" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/class.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -58,16 +71,16 @@
       <file leaf-file-name="jquery.svg.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/jquery.svg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="29" selection-start="504" selection-end="524" vertical-scroll-proportion="0.0">
+            <state line="19" column="0" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="panel.svg.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/panel.svg.js">
+      <file leaf-file-name="panel.time.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/panel.time.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="734" selection-end="734" vertical-scroll-proportion="0.0">
+            <state line="10" column="20" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -76,7 +89,25 @@
       <file leaf-file-name="panel.svg.linebar.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/panel.svg.linebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="46" selection-end="211" vertical-scroll-proportion="0.0">
+            <state line="35" column="0" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="panel.svg.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/panel.svg.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="27" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="panel.svg.cake.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/panel.svg.cake.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="34" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.6882353">
               <folding />
             </state>
           </provider>
@@ -96,15 +127,18 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/js/basepanel.js" />
-        <option value="$PROJECT_DIR$/js/dashboard.js" />
-        <option value="$PROJECT_DIR$/js/panel.text.js" />
-        <option value="$PROJECT_DIR$/js/panel.time.js" />
+        <option value="$USER_HOME$/Dropbox/fashion_web/mailing/xml/2013-01-03.xml" />
+        <option value="$PROJECT_DIR$/js/singlefile.js" />
+        <option value="$PROJECT_DIR$/js/class.js" />
         <option value="$PROJECT_DIR$/js/jquery.svg.js" />
-        <option value="$PROJECT_DIR$/js/panel.js" />
-        <option value="$PROJECT_DIR$/js/panel.svg.linebar.js" />
-        <option value="$PROJECT_DIR$/js/panel.svg.cake.js" />
+        <option value="$PROJECT_DIR$/js/dashboard.js" />
+        <option value="$PROJECT_DIR$/js/panel.time.js" />
+        <option value="$PROJECT_DIR$/js/panel.text.js" />
         <option value="$PROJECT_DIR$/js/panel.svg.js" />
+        <option value="$PROJECT_DIR$/js/panel.svg.linebar.js" />
+        <option value="$PROJECT_DIR$/js/panel.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/panel.svg.cake.js" />
       </list>
     </option>
   </component>
@@ -147,6 +181,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -181,7 +216,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -235,7 +269,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17878787" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24166666" sideWeight="0.69649124" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -244,7 +278,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30350876" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -303,18 +337,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/dashboard.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="244" selection-end="245" vertical-scroll-proportion="0.0">
+        <state line="104" column="14" selection-start="3121" selection-end="3121" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/class.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="18" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="12" column="18" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
@@ -326,86 +358,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="91" selection-start="144" selection-end="144" vertical-scroll-proportion="0.029411765">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="1" column="91" selection-start="144" selection-end="144" vertical-scroll-proportion="0.029411765" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webide.jar!/resources/html5-schema/core-scripting.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="16" selection-start="959" selection-end="959" vertical-scroll-proportion="0.33294392">
-          <folding />
-        </state>
+        <state line="31" column="16" selection-start="959" selection-end="959" vertical-scroll-proportion="0.33294392" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/panel.js">
+    <entry file="file://$USER_HOME$/Dropbox/fashion_web/mailing/xml/2013-01-03.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="19" selection-start="530" selection-end="530" vertical-scroll-proportion="0.52389705">
-          <folding />
-        </state>
+        <state line="40" column="0" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.43925235" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/panel.text.js">
+    <entry file="file://$PROJECT_DIR$/js/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="51" column="0" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.svg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/panel.time.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="10" column="20" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/dashboard.js">
+    <entry file="file://$PROJECT_DIR$/js/panel.text.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1695" selection-end="1695" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/class.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="21" selection-start="532" selection-end="532" vertical-scroll-proportion="0.2757353">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/panel.svg.linebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="46" selection-end="211" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery.svg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="29" selection-start="504" selection-end="524" vertical-scroll-proportion="0.0">
+        <state line="14" column="0" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/panel.svg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="734" selection-end="734" vertical-scroll-proportion="0.0">
+        <state line="31" column="27" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/panel.svg.cake.js">
+    <entry file="file://$PROJECT_DIR$/js/panel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+        <state line="44" column="1" selection-start="22" selection-end="931" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/class.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/panel.svg.linebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="10" selection-start="3155" selection-end="3155" vertical-scroll-proportion="0.9423077">
+        <state line="106" column="12" selection-start="3237" selection-end="3237" vertical-scroll-proportion="-11.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/panel.svg.cake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="34" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.6882353">
           <folding />
         </state>
       </provider>

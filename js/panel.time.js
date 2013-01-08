@@ -1,37 +1,38 @@
-var TimePanel = Panel.extend({
+WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
-    object: null,
+    name: 'WDB.Panel.Time',
 
-    init: function(obj, settings) {
+    initialize: function(obj, settings) {
 
-        object = obj;
+        self = this;
 
-        this.printTime();
+        WDB.Panel.prototype.initialize(obj, settings);
+
+        self.draw();
 
         t = setTimeout(
             function(){
-                obj.timePanel();
+                self.draw();
             },500
         );
+
     },
 
-    printTime: function() {
+    draw: function() {
         var today=new Date();
 
-        var elementId = object.attr('id');
-
-        var timerValue = $('#'+elementId+'TimerValue');
+        var timerValue = $('#'+this.objectId+'TimerValue');
         if (!timerValue.length) {
-            timerValue = $('<div id="'+elementId+'TimerValue" class="boxValue"></div>');
-            object.append(timerValue);
-            object.find('.boxValue').css('line-height', object.height()+"px");
+            timerValue = $('<div id="'+this.objectId+'TimerValue" class="boxValue"></div>');
+            this.object.append(timerValue);
         }
+        timerValue.css('line-height', this.object.height()+"px");
         timerValue.text(this.checkTime(today.getHours())+':'+this.checkTime(today.getMinutes())+':'+this.checkTime(today.getSeconds()));
 
-        var dateValue = $('#'+elementId+'DateValue');
+        var dateValue = $('#'+this.objectId+'DateValue');
         if (!dateValue.length) {
-            dateValue = $('<div id="'+elementId+'DateValue" class="boxLabel"></div>');
-            object.append(dateValue);
+            dateValue = $('<div id="'+this.objectId+'DateValue" class="boxLabel"></div>');
+            this.object.append(dateValue);
         }
 
         dateValue.text(this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear());

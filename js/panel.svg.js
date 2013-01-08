@@ -1,61 +1,61 @@
-var SVGPanel = Panel.extend({
+WDB.Panel.SVG = WDB.Class(WDB.Panel, {
 
-    object: null,
+    name: 'WDB.Panel.SVG',
 
     svgns: null,
 
     width: null,
     height: null,
 
-    elementId: null,
     svgId: null,
     svgElement: null,
 
     defaultSettings: {},
 
+    data: {},
 
-    init: function(obj, settings) {
+    initialize: function(obj, settings) {
 
-        object = obj;
+        self = this;
 
         defaultSettings= {
             svgns: 'http://www.w3.org/2000/svg',
             width: '300',
             height: '150'
         };
-
         settings = $.extend({}, defaultSettings, settings || {});
 
-        svgns = settings.svgns;
 
-        width = object.width();
-        height = object.height();
+        WDB.Panel.prototype.initialize(obj, settings);
 
-        elementId = object.attr('id');
+        this.width = this.object.width();
+        this.height = this.object.height();
 
-        svgId = 'svg'+elementId;
+        var svgId = 'svg'+self.objectId;
 
-        object.html('<svg id="'+svgId+'" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>');
+        this.object.html('<svg id="'+svgId+'" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>');
 
-        svgElement = $("#"+svgId);
-        svgElement.attr('width', width+"px");
-        svgElement.attr('height', height+"px");
+        this.svgElement = $("#"+svgId);
+        this.svgElement.attr('width', this.width+"px");
+        this.svgElement.attr('height', this.height+"px");
+
+        this.draw();
 
     },
 
 
-    resizeSvgElement: function(width, height)
+    resizeSvgElement: function()
     {
-        svgElement.attr('width', width+"px");
-        svgElement.attr('height', height+"px");
+        this.svgElement.attr('width', this.width+"px");
+        this.svgElement.attr('height', this.height+"px");
     },
 
-    getMaxValueFromData: function(data)
+    getMaxValueFromData: function()
     {
         var maxValue = 0;
 
-        for (var i = 0; i < data.length; i++) {
-            maxValue = (maxValue < data[i]) ? data[i] : maxValue;
+        for (var i = 0; i < this.data.length; i++) {
+            maxValue = (maxValue < this.data[i]) ? this.data[i] : maxValue;
         }
 
         return maxValue;

@@ -1,24 +1,34 @@
-var TextPanel = Panel.extend({
+WDB.Panel.Text = WDB.Class(WDB.Panel, {
 
-    init: function(obj, settings) {
+    settings: null,
+
+
+    initialize: function(obj, settings) {
         if (!settings.text) {
             return false;
         }
 
-        var defaultSettings = {};
+        self = this;
 
-        settings = $.extend({}, defaultSettings, settings || {});
+        self.defaultSettings = {};
 
-        var objectId = obj.attr('id');
+        self.name = 'WDB.Panel.Text';
 
-        var textValue = $('#'+objectId+'TextValue');
+        WDB.Panel.prototype.initialize(obj, settings);
+
+        self.draw();
+    },
+
+    draw: function() {
+
+        var textValue = $('#'+this.objectId+'TextValue');
+
         if (!textValue.length) {
-            textValue = $('<div id="'+objectId+'TextValue" class="boxValue"></div>');
-            obj.append(textValue);
-            obj.find('.boxValue').css('line-height', obj.height()+"px");
+            textValue = $('<div id="'+this.objectId+'TextValue" class="boxValue"></div>');
+            this.object.append(textValue);
         }
-        textValue.text(settings.text);
-
+        textValue.css('line-height', this.object.height()+"px");
+        textValue.text(this.settings.text);
     }
 
 });

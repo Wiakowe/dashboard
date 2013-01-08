@@ -1,23 +1,45 @@
-var Panel = Class.create({
+WDB.Panel = WDB.Class({
+
+    object: null,
+    objectId: null,
 
     settings: {},
 
-    init: function(obj, settings) {
-        var defaultSettings = {};
-        settings = $.extend({}, defaultSettings, settings || {});
+    defaultSettings: {},
+
+    self: null,
+
+    name: 'WDB.Panel',
+
+    initialize: function(obj, settings) {
+
+        self.settings = $.extend({}, this.defaultSettings, settings || {});
+
+        self.object = obj;
+
+        self.objectId = obj.attr('id');
+
+        $(window).resize(function() {
+            self.draw();
+        })
+
     },
 
-    appendBoxValue: function(settings) {
-        if (settings.value) {
-            object.append($('<div class="boxValue">'+settings.value+'</div>'));
-            object.find('.boxValue').css('line-height', object.height()+"px");
+    draw: function() {
+        //console.log('panel draw');
+    },
+
+    appendBoxValue: function() {
+        if (this.settings.value) {
+            this.object.append($('<div class="boxValue">'+this.settings.value+'</div>'));
+            this.object.find('.boxValue').css('line-height', this.object.height()+"px");
         }
     },
 
 
-    appendBoxLabel: function(settings) {
-        if (settings.label) {
-            object.append($('<div class="boxLabel">'+settings.label+'</div>'));
+    appendBoxLabel: function() {
+        if (this.settings.label) {
+            this.object.append($('<div class="boxLabel">'+this.settings.label+'</div>'));
         }
     }
 })

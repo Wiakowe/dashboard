@@ -1,27 +1,38 @@
-function Dashboard(obj, settings) {
+WDB.Dashboard = WDB.Class({
 
-    var self = this;
+    settings: {},
 
-    var defaultSettings = {
-        'marginV':          '10px',
-        'marginH':          '10px',
-        'panelH' :          '4',
-        'panelV' :          '3',
-        'panelsSelector':   'li'
-    };
+    object: null,
 
-    settings = $.extend({}, defaultSettings, settings || {});
+    width: null,
+    height: null,
+    panels: null,
+    panelWidth: null,
+    panelHeight: null,
 
-    var width, height, panels, panelWidth, panelHeight;
+    initialize: function(obj, settings) {
 
-    this.initialize = function() {
+        var self = this;
+
+        var defaultSettings = {
+            'marginV':          '10px',
+            'marginH':          '10px',
+            'panelH' :          '4',
+            'panelV' :          '3',
+            'panelsSelector':   'li'
+        };
+
+        self.settings = $.extend({}, defaultSettings, settings || {});
+
+        self.object = obj;
+
 
         //set body css
         $('body').css('margin', '0px');
         $('body').css('padding', '0px');
 
-        obj.css('margin', '10px 0 0 10px');
-        obj.css('padding', '0px');
+        self.object.css('margin', '10px 0 0 10px');
+        self.object.css('padding', '0px');
 
         self.resizeDashboard();
 
@@ -29,32 +40,38 @@ function Dashboard(obj, settings) {
             self.resizeDashboard();
         })
 
-    }
 
-    this.resizeDashboard = function()
+    },
+
+    resizeDashboard: function()
     {
+        //hide dashboard
+        this.object.hide();
+
         $('body').css('overflow', 'auto');
 
         //get the width and height of the window
-        width = $(window).width();
-        height = $(window).height();
+        this.width = $(document).width();
+        this.height = $(document).height();
+
+        //show the dashboard
+        this.object.show();
 
         //calculate the size of the panels
-        panelWidth = Math.round((width - (parseInt(settings.marginH) * (parseInt(settings.panelH) * 2))) / parseInt(settings.panelH));
-        panelHeight = Math.round((height - (parseInt(settings.marginV) * (parseInt(settings.panelV) * 2))) / parseInt(settings.panelV));
+        this.panelWidth = Math.round((this.width - (parseInt(this.settings.marginH) * (parseInt(this.settings.panelH) * 2))) / parseInt(this.settings.panelH));
+        this.panelHeight = Math.round((this.height - (parseInt(this.settings.marginV) * (parseInt(this.settings.panelV) * 2))) / parseInt(this.settings.panelV));
 
         //get the panels
-        panels = obj.find(settings.panelsSelector);
+        this.panels = this.object.find(this.settings.panelsSelector);
 
         //set the default CSS data for the panels
-        panels.width(panelWidth);
-        panels.height(panelHeight);
-        panels.css('float', 'left');
-        panels.css('padding', '0px')
-        panels.css('margin', '0 '+settings.marginH+' '+settings.marginV+' 0');
+        this.panels.width(this.panelWidth);
+        this.panels.height(this.panelHeight);
+        this.panels.css('float', 'left');
+        this.panels.css('padding', '0px')
+        this.panels.css('margin', '0 '+this.settings.marginH+' '+this.settings.marginV+' 0');
 
         $('body').css('overflow', 'hidden');
     }
 
-    return self.initialize();
-}
+})

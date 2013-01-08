@@ -35,8 +35,6 @@
                 left: 0;
             }
 
-
-
             .boxLabel {
                 position: absolute;
                 text-align: center;
@@ -68,38 +66,47 @@
             <li id="jsBox6" class="box" ></li>
         </ul>
         <script type="text/javascript" src="js/jquery.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.svg.js" ></script>
+
         <script type="text/javascript" src="js/class.js" ></script>
 
         <script type="text/javascript" src="js/panel.js" ></script>
         <script type="text/javascript" src="js/panel.text.js" ></script>
         <script type="text/javascript" src="js/panel.time.js" ></script>
 
+
         <script type="text/javascript" src="js/panel.svg.js" ></script>
         <script type="text/javascript" src="js/panel.svg.linebar.js" ></script>
         <script type="text/javascript" src="js/panel.svg.cake.js" ></script>
 
+
         <script type="text/javascript" src="js/dashboard.js" ></script>
-        <script type="text/javascript" src="js/jquery.svg.js" ></script>
 
         <script type="text/javascript">
         $(function() {
 
+            /*
+            var dashboard = new WiakoweDashboardDashboard($("#dashboard"), {
+                'panelH': 3,
+                'panelV': 2
+            });
+            */
             $("#dashboard").dashboard({
                 'panelH': 3,
                 'panelV': 2
             });
 
-            $("#jsBox").textPanel({'text': 'Iskoa'});
+            var textPanel = new WDB.Panel.Text($("#jsBox"), {'text': 'Iskoa'});
 
-            $("#jsBox5").timePanel();
+            var timePanel = new WDB.Panel.Time($("#jsBox5"));
 
-            $("#jsBox2").svgLineBarGraphPanel({'values':[0,1,1,2,3,4,5], 'value': '25€', 'label': 'ventas de día'});
+            var lineBar2 = new WDB.Panel.SVG.LineBar($("#jsBox2"), {'values':[0,1,1,2,3,4,5], 'value': '25€', 'label': 'ventas de día'});
 
-            $("#jsBox3").svgCakeGraphPanel({'values':[50,35,10], 'label': 'ventas por familia'});
+            var lineBar6 = new WDB.Panel.SVG.LineBar($("#jsBox6"), {'values':[10,15,25,32,43,50, 65,69,73], 'value': '334€', 'label': 'ventas de mes'});
 
-            $("#jsBox4").svgCakeGraphPanel({'values':[65,35], 'label': 'ventas por género'});
+            var cake3 = new WDB.Panel.SVG.Cake($("#jsBox3"), {'values':[50,35,10], 'label': 'ventas por familia'});
 
-            $("#jsBox6").svgLineBarGraphPanel({'values':[10,15,25,32,43,50, 65,69,73], 'value': '334€', 'label': 'ventas de mes'});
+            var cake4 = new WDB.Panel.SVG.Cake($("#jsBox4"), {'values':[65, 35], 'label': 'ventas por género'});
         })
         </script>
 

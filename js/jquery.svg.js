@@ -15,12 +15,12 @@
     }
 
     $.fn.textPanel = function(settings) {
-        var textPanel = new TextPanel(this, settings);
+        var textPanel = new WDB.Panel.Text(this, settings);
     }
 
     $.fn.timePanel = function(settings) {
 
-        var timePanel = new TimePanel(this, settings);
+        var timePanel = new WDB.Panel.Time(this, settings);
     }
 
     $.fn.svgLineBarGraphPanel = function(settings) {
@@ -34,8 +34,7 @@
     }
 
     $.fn.dashboard = function(settings) {
-
-        var dashboard = new Dashboard(this, settings);
+        var dashboard = new WDB.Dashboard(this, settings);
     }
 
 })(jQuery, window, document);
