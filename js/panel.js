@@ -19,10 +19,6 @@ WDB.Panel = WDB.Class({
 
         self.objectId = obj.attr('id');
 
-        $(window).resize(function() {
-            self.draw();
-        })
-
     },
 
     draw: function() {
