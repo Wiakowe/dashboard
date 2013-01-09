@@ -35,8 +35,6 @@
                 left: 0;
             }
 
-
-
             .boxLabel {
                 position: absolute;
                 text-align: center;
@@ -54,53 +52,61 @@
 		</style>
 	</head>
 	<body>
-        <!--
-		<div class="box">
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-			  <circle cx="100" cy="50" r="40" stroke="#661130" stroke-width="2" fill="#FC3370" />
-			</svg>
-		</div>
-		<div class="box">
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-				<path fill="#FC3370" stroke="#661130" stroke-width="0" d="M0 10 L0 100 L50 100 L50 10 Z" />
-                <path fill="#D8295D" stroke="#661130" stroke-width="0" d="M50 10 L50 100 L100 100 L100 50 Z" />
-                <path fill="#FC3370" stroke="#661130" stroke-width="0" d="M100 50 L100 100 L150 100 L150 30 Z" />
-			</svg>
-		</div>
-		<div class="box">
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="400px" heigth="300px">
-<path fill="#e1e1d8" stroke="#666" stroke-width="2" d="M150 82 L86 40 A76 76 0 0 1 226 82 Z" />
-<path fill="#FC3370" stroke="#661130" stroke-width="2"  d="M150 82 L73 82 A76 76 0 0 1 86 40 Z" />
-			</svg>
-		</div>
-		    -->
-        <div id="jsBox" class="box boxInversed" ></div>
+        <ul id="dashboard">
+            <li id="jsBox" class="box boxInversed" ></li>
 
-        <div id="jsBox2" class="box" ></div>
+            <li id="jsBox2" class="box" ></li>
 
-        <div id="jsBox3" class="box" ></div>
+            <li id="jsBox3" class="box" ></li>
 
-        <div id="jsBox4" class="box" ></div>
+            <li id="jsBox4" class="box" ></li>
 
-        <div id="jsBox5" class="box boxInversed"></div>
+            <li id="jsBox5" class="box boxInversed"></li>
 
-        <div id="jsBox6" class="box" ></div>
+            <li id="jsBox6" class="box" ></li>
+        </ul>
+        <script type="text/javascript" src="js/jquery.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.svg.js" ></script>
 
-        <script src="jquery.min.js"></script>
-        <script src="jquery.svg.js"></script>
+        <script type="text/javascript" src="js/class.js" ></script>
+
+        <script type="text/javascript" src="js/panel.js" ></script>
+        <script type="text/javascript" src="js/panel.text.js" ></script>
+        <script type="text/javascript" src="js/panel.time.js" ></script>
+
+
+        <script type="text/javascript" src="js/panel.svg.js" ></script>
+        <script type="text/javascript" src="js/panel.svg.linebar.js" ></script>
+        <script type="text/javascript" src="js/panel.svg.cake.js" ></script>
+
+
+        <script type="text/javascript" src="js/dashboard.js" ></script>
+
         <script type="text/javascript">
         $(function() {
-            $("#jsBox").textPanel({'text': 'Iskoa'});
 
-            $("#jsBox5").timePanel();
+            /*
+            var dashboard = new WiakoweDashboardDashboard($("#dashboard"), {
+                'panelH': 3,
+                'panelV': 2
+            });
+            */
+            $("#dashboard").dashboard({
+                'panelH': 3,
+                'panelV': 2
+            });
 
-            $("#jsBox2").svgBarGraphPanel({'values':[0,1,1,2,3,4,5], 'value': '25€', 'label': 'ventas de día'});
+            var textPanel = new WDB.Panel.Text($("#jsBox"), {'text': 'Iskoa'});
 
-            $("#jsBox3").svgCakeGraphPanel({'values':[50,35,10], 'label': 'ventas por familia'});
+            var timePanel = new WDB.Panel.Time($("#jsBox5"));
 
-            $("#jsBox4").svgCakeGraphPanel({'values':[65,35], 'label': 'ventas por género'});
+            var lineBar2 = new WDB.Panel.SVG.LineBar($("#jsBox2"), {'values':[0,1,1,2,3,4,5], 'value': '25€', 'label': 'ventas de día'});
 
-            $("#jsBox6").svgBarGraphPanel({'values':[10,15,25,32,43,50, 65,69,73], 'value': '334€', 'label': 'ventas de mes'});
+            var lineBar6 = new WDB.Panel.SVG.LineBar($("#jsBox6"), {'values':[10,15,25,32,43,50, 65,69,73], 'value': '334€', 'label': 'ventas de mes'});
+
+            var cake3 = new WDB.Panel.SVG.Cake($("#jsBox3"), {'values':[50,35,10], 'label': 'ventas por familia'});
+
+            var cake4 = new WDB.Panel.SVG.Cake($("#jsBox4"), {'values':[65, 35], 'label': 'ventas por género'});
         })
         </script>
 
