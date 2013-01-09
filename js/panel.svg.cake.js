@@ -25,14 +25,19 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
         var colorEven = '#FC3370';
         var colorAdd = '#D8295D';
 
+        var margin = 15;
 
-        var length = (this.width/2)-50;
+        var length = (this.width/2)-margin * 2;
+
+        if (length > (this.height - margin * 2)) {
+            length = this.height - margin * 2;
+        }
 
         var sumAngle = 0;
         var centerX, centerY, startX, startY, endX, endY;
 
         centerX = (this.width/2);
-        centerY = (this.height-15);
+        centerY = (this.height-margin);
 
         for (i = 0; i < numElements; i++) {
 
