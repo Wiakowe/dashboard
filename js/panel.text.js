@@ -2,6 +2,8 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
 
     settings: null,
 
+    textValue: null,
+
 
     initialize: function(obj, settings) {
         if (!settings.text) {
@@ -19,16 +21,29 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
         self.draw();
     },
 
-    draw: function() {
+    createElement: function() {
+        this.textValue = $('#'+this.objectId+'TextValue');
 
-        var textValue = $('#'+this.objectId+'TextValue');
-
-        if (!textValue.length) {
-            textValue = $('<div id="'+this.objectId+'TextValue" class="boxValue"></div>');
-            this.object.append(textValue);
+        if (!this.textValue.length) {
+            this.textValue = $('<div id="'+this.objectId+'TextValue" class="boxValue"></div>');
+            this.object.append(this.textValue);
         }
-        textValue.css('line-height', this.object.height()+"px");
-        textValue.text(this.settings.text);
+    },
+
+    styleElement: function() {
+        this.textValue.css('line-height', this.object.height()+"px");
+    },
+
+    resize: function() {
+        this.styleElement();
+    },
+
+    draw: function() {
+        this.createElement();
+
+        this.styleElement();
+
+        this.textValue.text(this.settings.text);
     }
 
 });

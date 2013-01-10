@@ -21,8 +21,10 @@ WDB.Panel = WDB.Class({
 
     },
 
+    resize: function() {
+    },
+
     draw: function() {
-        //console.log('panel draw');
     },
 
     appendBoxValue: function() {

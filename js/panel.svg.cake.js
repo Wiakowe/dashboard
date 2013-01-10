@@ -19,7 +19,7 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
         var sumValues = 0;
 
         for (var i = 0; i < numElements; i++) {
-            sumValues += this.data[i];
+            sumValues += parseInt(this.data[i]);
         }
 
         var colorEven = '#FC3370';
@@ -43,7 +43,7 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
 
             var path = document.createElementNS(this.settings.svgns, "path");
 
-            var angle = Math.PI * (this.data[i]/sumValues);
+            var angle = Math.PI * (parseInt(this.data[i])/sumValues);
             sumAngle += angle;
 
 

@@ -57,7 +57,7 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
         var maxValue = 0;
 
         for (var i = 0; i < this.data.length; i++) {
-            maxValue = (maxValue < this.data[i]) ? this.data[i] : maxValue;
+            maxValue = (maxValue < parseInt(this.data[i])) ? parseInt(this.data[i]) : maxValue;
         }
 
         return maxValue;
