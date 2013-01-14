@@ -3,7 +3,7 @@ WDB.Panel = WDB.Class({
     object: null,
     objectId: null,
 
-    settings: {},
+    settings: null,
 
     defaultSettings: {},
 
@@ -13,29 +13,44 @@ WDB.Panel = WDB.Class({
 
     initialize: function(obj, settings) {
 
-        self.settings = $.extend({}, this.defaultSettings, settings || {});
+        this.settings = new Array();
+        this.settings = $.extend({}, this.defaultSettings, settings || {});
 
-        self.object = obj;
+        this.object = obj;
 
-        self.objectId = obj.attr('id');
+        this.objectId = obj.attr('id');
 
     },
 
+    resize: function() {
+    },
+
     draw: function() {
-        //console.log('panel draw');
     },
 
     appendBoxValue: function() {
         if (this.settings.value) {
-            this.object.append($('<div class="boxValue">'+this.settings.value+'</div>'));
-            this.object.find('.boxValue').css('line-height', this.object.height()+"px");
+            boxValue = this.object.find('.boxValue');
+            if (!boxValue.length) {
+                this.object.append($('<div class="boxValue">'+this.settings.value+'</div>'));
+                boxValue = this.object.find('.boxValue');
+            } else {
+                boxValue.text(this.settings.value);
+            }
+            boxValue.css('line-height', this.object.height()+"px");
         }
     },
 
 
     appendBoxLabel: function() {
         if (this.settings.label) {
-            this.object.append($('<div class="boxLabel">'+this.settings.label+'</div>'));
+            boxLabel = this.object.find('.boxLabel');
+            if (!boxLabel.length) {
+                this.object.append($('<div class="boxLabel">'+this.settings.label+'</div>'));
+                boxLabel = this.object.find('.boxLabel');
+            } else {
+                boxLabel.text(this.settings.label);
+            }
         }
     }
 })

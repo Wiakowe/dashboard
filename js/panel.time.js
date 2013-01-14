@@ -2,40 +2,66 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
     name: 'WDB.Panel.Time',
 
-    initialize: function(obj, settings) {
+    timerValue: null,
+    dateValue: null,
 
-        self = this;
+    initialize: function(obj, settings) {
 
         WDB.Panel.prototype.initialize(obj, settings);
 
-        self.draw();
+        this.object = this.object;
+        this.settings = this.settings;
 
-        t = setTimeout(
-            function(){
-                self.draw();
-            },500
-        );
+        this.draw();
 
     },
 
+    timer: function() {
+
+        var panelTimer = this;
+
+        t = setTimeout(
+            function(){
+                panelTimer.draw();
+            },500
+        );
+    },
+
+    createElement: function() {
+        this.timerValue = $('#'+this.object.attr('id')+'TimerValue');
+        if (!this.timerValue.length) {
+            this.timerValue = $('<div id="'+this.object.attr('id')+'TimerValue" class="boxValue"></div>');
+            this.object.append(this.timerValue);
+        }
+
+        this.dateValue = $('#'+this.object.attr('id')+'DateValue');
+        if (!this.dateValue.length) {
+            this.dateValue = $('<div id="'+this.object.attr('id')+'DateValue" class="boxLabel"></div>');
+            this.object.append(this.dateValue);
+        }
+    },
+
+    styleElement: function() {
+        this.timerValue.css('line-height', this.object.height()+"px");
+
+    },
+
+    resize: function() {
+        this.styleElement();
+    },
+
     draw: function() {
+
+        this.createElement();
+        this.styleElement();
+
         var today=new Date();
 
-        var timerValue = $('#'+this.objectId+'TimerValue');
-        if (!timerValue.length) {
-            timerValue = $('<div id="'+this.objectId+'TimerValue" class="boxValue"></div>');
-            this.object.append(timerValue);
-        }
-        timerValue.css('line-height', this.object.height()+"px");
-        timerValue.text(this.checkTime(today.getHours())+':'+this.checkTime(today.getMinutes())+':'+this.checkTime(today.getSeconds()));
+        this.timerValue.text(this.checkTime(today.getHours())+':'+this.checkTime(today.getMinutes())+':'+this.checkTime(today.getSeconds()));
 
-        var dateValue = $('#'+this.objectId+'DateValue');
-        if (!dateValue.length) {
-            dateValue = $('<div id="'+this.objectId+'DateValue" class="boxLabel"></div>');
-            this.object.append(dateValue);
-        }
+        this.dateValue.text(this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear());
 
-        dateValue.text(this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear());
+        this.timer();
     },
 
     checkTime: function(i)

@@ -53,17 +53,18 @@
 	</head>
 	<body>
         <ul id="dashboard">
-            <li id="jsBox" class="box boxInversed" ></li>
 
-            <li id="jsBox2" class="box" ></li>
+            <li id="jsBox" class="box boxInversed" data-panel-type="panel.text" data-panel-text="Iskoa"></li>
 
-            <li id="jsBox3" class="box" ></li>
+            <li id="jsBox2" class="box" data-panel-type="panel.svg.lineBar" data-panel-values="0,1,1,2,3,4,5" data-panel-value="25€" data-panel-text="Ventas del día"></li>
 
-            <li id="jsBox4" class="box" ></li>
+            <li id="jsBox3" class="box" data-panel-type="panel.svg.cake" data-panel-values="50,35,10" data-panel-text="Ventas por tipo"></li>
 
-            <li id="jsBox5" class="box boxInversed"></li>
+            <li id="jsBox4" class="box" data-panel-type="panel.svg.cake" data-panel-values="65,35" data-panel-text="Ventas por género"></li>
 
-            <li id="jsBox6" class="box" ></li>
+            <li id="jsBox5" class="box boxInversed" data-panel-type="panel.time"></li>
+
+            <li id="jsBox6" class="box" data-panel-type="panel.svg.lineBar" data-panel-values="10,15,25,32,43,50, 65,69,73" data-panel-value="334€" data-panel-text="Ventas del mes"></li>
         </ul>
         <script type="text/javascript" src="js/jquery.min.js" ></script>
         <script type="text/javascript" src="js/jquery.svg.js" ></script>
@@ -95,7 +96,7 @@
                 'panelH': 3,
                 'panelV': 2
             });
-
+            /*
             var textPanel = new WDB.Panel.Text($("#jsBox"), {'text': 'Iskoa'});
 
             var timePanel = new WDB.Panel.Time($("#jsBox5"));
@@ -107,6 +108,7 @@
             var cake3 = new WDB.Panel.SVG.Cake($("#jsBox3"), {'values':[50,35,10], 'label': 'ventas por familia'});
 
             var cake4 = new WDB.Panel.SVG.Cake($("#jsBox4"), {'values':[65, 35], 'label': 'ventas por género'});
+            */
         })
         </script>
 

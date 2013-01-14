@@ -1,25 +1,51 @@
 WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
 
+    name: 'WDB.Panel.SVG.Cake',
+
     initialize: function(obj, settings) {
 
         if (!settings.values) {
             return false;
         }
 
+        this.data = settings.values;
+
         WDB.Panel.SVG.prototype.initialize(obj, settings);
 
+        this.object = this.object;
+        this.svgElement = this.svgElement;
+        this.settings = this.settings;
+
         this.draw();
+    },
+
+    createElement: function() {
+
+    },
+
+    styleElement: function() {
+
+    },
+
+    resize: function() {
+        this.resizeSvgElement();
+
+        this.drawCake();
 
     },
 
     draw: function() {
+        this.drawCake();
+    },
+
+    drawCake: function() {
 
         var numElements = this.data.length;
 
         var sumValues = 0;
 
         for (var i = 0; i < numElements; i++) {
-            sumValues += this.data[i];
+            sumValues += parseInt(this.data[i]);
         }
 
         var colorEven = '#FC3370';
@@ -39,13 +65,14 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
         centerX = (this.width/2);
         centerY = (this.height-margin);
 
+        this.clearSvgElement();
+
         for (i = 0; i < numElements; i++) {
 
             var path = document.createElementNS(this.settings.svgns, "path");
 
-            var angle = Math.PI * (this.data[i]/sumValues);
+            var angle = Math.PI * (parseInt(this.data[i])/sumValues);
             sumAngle += angle;
-
 
             if (i == 0) {
                 startX = centerX - length;
@@ -65,9 +92,6 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
 
             this.svgElement.append(path);
         }
-
         this.appendBoxLabel();
-
-
     }
 });
