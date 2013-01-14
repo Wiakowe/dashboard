@@ -1,19 +1,47 @@
 WDB.Panel.SVG.LineBar = WDB.Class(WDB.Panel.SVG, {
 
+    name: 'WDB.Panel.SVG.LineBar',
+
     initialize: function(obj, settings) {
 
         if (!settings.values) {
             return false;
         }
 
+        this.data = settings.values;
+
         WDB.Panel.SVG.prototype.initialize(obj, settings);
+
+        this.object = this.object;
+        this.svgElement = this.svgElement;
+        this.settings = this.settings;
 
         this.draw();
     },
 
+    createElement: function() {
+
+    },
+
+    styleElement: function() {
+
+    },
+
+    resize: function() {
+
+        this.resizeSvgElement();
+
+        this.drawLineBar();
+    },
+
     draw: function() {
 
-        var numElements = this.settings.values.length;
+        this.drawLineBar();
+    },
+
+    drawLineBar: function() {
+
+        var numElements = this.data.length;
 
         var widthBar = this.width / (numElements-1);
 
@@ -25,6 +53,8 @@ WDB.Panel.SVG.LineBar = WDB.Class(WDB.Panel.SVG, {
         var maxValue = this.getMaxValueFromData(this.data);
         maxValue += maxValue * 0.15;
         var unitHeight = this.height / maxValue;
+
+        this.clearSvgElement();
 
         for (var i = 0; i < numElements; i++) {
             //create the path

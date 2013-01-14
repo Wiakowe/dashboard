@@ -1,24 +1,20 @@
 WDB.Panel.Text = WDB.Class(WDB.Panel, {
 
-    settings: null,
-
     textValue: null,
 
+    name: 'WDB.Panel.Text',
 
     initialize: function(obj, settings) {
         if (!settings.text) {
             return false;
         }
 
-        self = this;
-
-        self.defaultSettings = {};
-
-        self.name = 'WDB.Panel.Text';
-
         WDB.Panel.prototype.initialize(obj, settings);
 
-        self.draw();
+        this.object = this.object;
+        this.settings = this.settings;
+
+        this.draw();
     },
 
     createElement: function() {

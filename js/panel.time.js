@@ -7,11 +7,14 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
     initialize: function(obj, settings) {
 
-        self = this;
-
         WDB.Panel.prototype.initialize(obj, settings);
 
-        self.draw();
+        this.object = this.object;
+        this.settings = this.settings;
+
+        self = this;
+
+        this.draw();
 
         t = setTimeout(
             function(){
@@ -28,14 +31,11 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
             this.object.append(this.timerValue);
         }
 
-
-
         this.dateValue = $('#'+this.objectId+'DateValue');
         if (!this.dateValue.length) {
             this.dateValue = $('<div id="'+this.objectId+'DateValue" class="boxLabel"></div>');
             this.object.append(this.dateValue);
         }
-
     },
 
     styleElement: function() {

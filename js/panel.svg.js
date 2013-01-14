@@ -12,7 +12,7 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
 
     defaultSettings: {},
 
-    data: {},
+    data: new Array(),
 
     initialize: function(obj, settings) {
 
@@ -24,7 +24,6 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
             height: '150'
         };
         settings = $.extend({}, defaultSettings, settings || {});
-
 
         WDB.Panel.prototype.initialize(obj, settings);
 
@@ -39,15 +38,22 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
         this.svgElement.attr('width', this.width+"px");
         this.svgElement.attr('height', this.height+"px");
 
-        this.data = this.settings.values;
+        this.data = settings.values;
 
         this.draw();
 
     },
 
+    clearSvgElement: function() {
+        this.svgElement.empty();
+    },
+
 
     resizeSvgElement: function()
     {
+        this.width = this.object.width();
+        this.height = this.object.height();
+
         this.svgElement.attr('width', this.width+"px");
         this.svgElement.attr('height', this.height+"px");
     },
