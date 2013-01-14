@@ -12,28 +12,31 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
         this.object = this.object;
         this.settings = this.settings;
 
-        self = this;
-
         this.draw();
-
-        t = setTimeout(
-            function(){
-                self.draw();
-            },500
-        );
 
     },
 
+    timer: function() {
+
+        var panelTimer = this;
+
+        t = setTimeout(
+            function(){
+                panelTimer.draw();
+            },500
+        );
+    },
+
     createElement: function() {
-        this.timerValue = $('#'+this.objectId+'TimerValue');
+        this.timerValue = $('#'+this.object.attr('id')+'TimerValue');
         if (!this.timerValue.length) {
-            this.timerValue = $('<div id="'+this.objectId+'TimerValue" class="boxValue"></div>');
+            this.timerValue = $('<div id="'+this.object.attr('id')+'TimerValue" class="boxValue"></div>');
             this.object.append(this.timerValue);
         }
 
         this.dateValue = $('#'+this.objectId+'DateValue');
         if (!this.dateValue.length) {
-            this.dateValue = $('<div id="'+this.objectId+'DateValue" class="boxLabel"></div>');
+            this.dateValue = $('<div id="'+this.object.attr('id')+'DateValue" class="boxLabel"></div>');
             this.object.append(this.dateValue);
         }
     },
@@ -57,6 +60,8 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
         this.timerValue.text(this.checkTime(today.getHours())+':'+this.checkTime(today.getMinutes())+':'+this.checkTime(today.getSeconds()));
 
         this.dateValue.text(this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear());
+
+        this.timer();
     },
 
     checkTime: function(i)
