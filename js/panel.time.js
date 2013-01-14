@@ -34,7 +34,7 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
             this.object.append(this.timerValue);
         }
 
-        this.dateValue = $('#'+this.objectId+'DateValue');
+        this.dateValue = $('#'+this.object.attr('id')+'DateValue');
         if (!this.dateValue.length) {
             this.dateValue = $('<div id="'+this.object.attr('id')+'DateValue" class="boxLabel"></div>');
             this.object.append(this.dateValue);
