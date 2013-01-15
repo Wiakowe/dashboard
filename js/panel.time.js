@@ -2,9 +2,6 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
     name: 'WDB.Panel.Time',
 
-    timerValue: null,
-    dateValue: null,
-
     initialize: function(obj, settings) {
 
         WDB.Panel.prototype.initialize(obj, settings);
@@ -28,22 +25,21 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
     },
 
     createElement: function() {
-        this.timerValue = $('#'+this.object.attr('id')+'TimerValue');
-        if (!this.timerValue.length) {
-            this.timerValue = $('<div id="'+this.object.attr('id')+'TimerValue" class="boxValue"></div>');
-            this.object.append(this.timerValue);
+        this.valueText = $('#'+this.object.attr('id')+'TimerValue');
+        if (!this.valueText.length) {
+            this.valueText = $('<div id="'+this.object.attr('id')+'TimerValue" class="boxValue"></div>');
+            this.object.append(this.valueText);
         }
 
-        this.dateValue = $('#'+this.object.attr('id')+'DateValue');
-        if (!this.dateValue.length) {
-            this.dateValue = $('<div id="'+this.object.attr('id')+'DateValue" class="boxLabel"></div>');
-            this.object.append(this.dateValue);
+        this.labelText = $('#'+this.object.attr('id')+'DateValue');
+        if (!this.labelText.length) {
+            this.labelText = $('<div id="'+this.object.attr('id')+'DateValue" class="boxLabel"></div>');
+            this.object.append(this.labelText);
         }
     },
 
     styleElement: function() {
-        this.timerValue.css('line-height', this.object.height()+"px");
-
+        this.styleTextValue();
     },
 
     resize: function() {
@@ -53,15 +49,17 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
     draw: function() {
 
         this.createElement();
-        this.styleElement();
 
         var today=new Date();
 
-        this.timerValue.text(this.checkTime(today.getHours())+':'+this.checkTime(today.getMinutes())+':'+this.checkTime(today.getSeconds()));
+        this.valueText.text(this.checkTime(today.getHours())+':'+this.checkTime(today.getMinutes())+':'+this.checkTime(today.getSeconds()));
 
-        this.dateValue.text(this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear());
+        this.labelText.text(this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear());
 
         this.timer();
+
+        this.styleElement();
+
     },
 
     checkTime: function(i)
