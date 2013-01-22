@@ -5,7 +5,11 @@ WDB.Panel = WDB.Class({
 
     settings: null,
 
-    defaultSettings: {},
+    defaultSettings: {
+        fontMaxSize: 40,
+        fontValueMaxSize: 40,
+        fontLabelMaxSize: 10
+    },
 
     self: null,
 
@@ -33,9 +37,24 @@ WDB.Panel = WDB.Class({
 
     styleTextValue: function() {
         if (this.valueText) {
-            this.valueText.css('font-size', this.object.width() / this.valueText.text().length * 1.5)
+            fontSize = this.object.width() / this.valueText.text().length * 1.5;
+            if (this.defaultSettings.fontValueMaxSize) {
+                fontSize = Math.min(fontSize, this.object.height() * this.defaultSettings.fontValueMaxSize / 100);
+            } else if (this.defaultSettings.fontMaxSize) {
+                fontSize = Math.min(fontSize, this.object.height() * this.defaultSettings.fontMaxSize / 100);
+            }
+            this.valueText.css('font-size', fontSize);
             this.valueText.css('line-height', this.object.height()+"px");
         }
+
+        if (this.labelText) {
+            fontSize = this.object.width() / 10;
+            if (this.defaultSettings.fontLabelMaxSize) {
+                fontSize = Math.min(fontSize, this.object.height() * this.defaultSettings.fontLabelMaxSize / 100);
+            }
+            this.labelText.css('font-size', fontSize);
+        }
+
 
     },
 

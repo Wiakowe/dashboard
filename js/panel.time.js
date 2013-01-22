@@ -11,17 +11,16 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
         this.draw();
 
+        this.timer();
     },
 
     timer: function() {
 
         var panelTimer = this;
 
-        t = setTimeout(
-            function(){
-                panelTimer.draw();
-            },500
-        );
+        setInterval(function(){
+            panelTimer.draw()
+        }, 500);
     },
 
     createElement: function() {
@@ -56,10 +55,7 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
         this.labelText.text(this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear());
 
-        this.timer();
-
         this.styleElement();
-
     },
 
     checkTime: function(i)
