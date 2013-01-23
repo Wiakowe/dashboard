@@ -127,6 +127,9 @@ WDB.Dashboard = WDB.Class({
         if (element.data('panel-type') == 'panel.time') {
             return new WDB.Panel.Time(element);
         }
+        if (element.data('panel-type') == 'panel.image') {
+            return new WDB.Panel.Image(element, {'src': element.data('panel-src')});
+        }
         if (element.data('panel-type') == 'panel.svg.lineBar') {
             return new WDB.Panel.SVG.LineBar(element, {'values':element.data('panel-values').split(','), 'value': element.data('panel-value'), 'label': element.data('panel-text')});
         }
