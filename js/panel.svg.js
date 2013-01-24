@@ -45,6 +45,25 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
 
     },
 
+    timer: function()
+    {
+        if (this.settings.url) {
+            var panelTimer = this;
+            setInterval(function(){
+                $.ajax({
+                    url: panelTimer.settings.url,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        panelTimer.data = data.values;
+                        panelTimer.settings.value = data.value;
+                        panelTimer.draw()
+                    }
+                });
+            }, 1500);
+        }
+    },
+
     clearSvgElement: function() {
         this.svgElement.empty();
     },
