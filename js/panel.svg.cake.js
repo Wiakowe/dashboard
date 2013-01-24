@@ -17,6 +17,8 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
         this.settings = this.settings;
 
         this.draw();
+
+        this.timer();
     },
 
     createElement: function() {
@@ -24,13 +26,15 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
     },
 
     styleElement: function() {
-
+        this.styleTextValue();
     },
 
     resize: function() {
         this.resizeSvgElement();
 
         this.drawCake();
+
+        this.styleElement();
 
     },
 

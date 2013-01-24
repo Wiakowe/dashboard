@@ -5,9 +5,16 @@ WDB.Panel = WDB.Class({
 
     settings: null,
 
-    defaultSettings: {},
+    defaultSettings: {
+        fontMaxSize: 40,
+        fontValueMaxSize: 40,
+        fontLabelMaxSize: 10
+    },
 
     self: null,
+
+    valueText: null,
+    labelText: null,
 
     name: 'WDB.Panel',
 
@@ -28,29 +35,48 @@ WDB.Panel = WDB.Class({
     draw: function() {
     },
 
+    styleTextValue: function() {
+        if (this.valueText) {
+            fontSize = this.object.width() / this.valueText.text().length * 1.5;
+            if (this.defaultSettings.fontValueMaxSize) {
+                fontSize = Math.min(fontSize, this.object.height() * this.defaultSettings.fontValueMaxSize / 100);
+            } else if (this.defaultSettings.fontMaxSize) {
+                fontSize = Math.min(fontSize, this.object.height() * this.defaultSettings.fontMaxSize / 100);
+            }
+            this.valueText.css('font-size', fontSize);
+            this.valueText.css('line-height', this.object.height()+"px");
+        }
+
+        if (this.labelText) {
+            fontSize = this.object.width() / 10;
+            if (this.defaultSettings.fontLabelMaxSize) {
+                fontSize = Math.min(fontSize, this.object.height() * this.defaultSettings.fontLabelMaxSize / 100);
+            }
+            this.labelText.css('font-size', fontSize);
+        }
+
+
+    },
+
     appendBoxValue: function() {
         if (this.settings.value) {
-            boxValue = this.object.find('.boxValue');
-            if (!boxValue.length) {
-                this.object.append($('<div class="boxValue">'+this.settings.value+'</div>'));
-                boxValue = this.object.find('.boxValue');
-            } else {
-                boxValue.text(this.settings.value);
+            if (!this.valueText) {
+                this.valueText = $('<div class="boxValue"></div>');
+                this.object.append(this.valueText);
             }
-            boxValue.css('line-height', this.object.height()+"px");
+            this.valueText.text(this.settings.value);
+            this.styleTextValue();
         }
     },
 
 
     appendBoxLabel: function() {
         if (this.settings.label) {
-            boxLabel = this.object.find('.boxLabel');
-            if (!boxLabel.length) {
-                this.object.append($('<div class="boxLabel">'+this.settings.label+'</div>'));
-                boxLabel = this.object.find('.boxLabel');
-            } else {
-                boxLabel.text(this.settings.label);
+            if (!this.labelText) {
+                this.labelText = $('<div class="boxLabel">'+this.settings.label+'</div>');
+                this.object.append(this.labelText);
             }
+            this.labelText.text(this.settings.label);
         }
     }
 })

@@ -18,16 +18,16 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
     },
 
     createElement: function() {
-        this.textValue = $('#'+this.objectId+'TextValue');
+        this.valueText = $('#'+this.object.attr('id')+'TextValue');
 
-        if (!this.textValue.length) {
-            this.textValue = $('<div id="'+this.objectId+'TextValue" class="boxValue"></div>');
-            this.object.append(this.textValue);
+        if (!this.valueText.length) {
+            this.valueText = $('<div id="'+this.object.attr('id')+'TextValue" class="boxValue"></div>');
+            this.object.append(this.valueText);
         }
     },
 
     styleElement: function() {
-        this.textValue.css('line-height', this.object.height()+"px");
+        this.styleTextValue();
     },
 
     resize: function() {
@@ -37,9 +37,9 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
     draw: function() {
         this.createElement();
 
-        this.styleElement();
+        this.valueText.text(this.settings.text);
 
-        this.textValue.text(this.settings.text);
+        this.styleElement();
     }
 
 });

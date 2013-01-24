@@ -17,14 +17,15 @@ WDB.Panel.SVG.LineBar = WDB.Class(WDB.Panel.SVG, {
         this.settings = this.settings;
 
         this.draw();
+
+        this.timer();
     },
 
     createElement: function() {
-
     },
 
     styleElement: function() {
-
+        this.styleTextValue();
     },
 
     resize: function() {
@@ -32,6 +33,8 @@ WDB.Panel.SVG.LineBar = WDB.Class(WDB.Panel.SVG, {
         this.resizeSvgElement();
 
         this.drawLineBar();
+
+        this.styleElement();
     },
 
     draw: function() {

@@ -10,8 +10,6 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
     svgId: null,
     svgElement: null,
 
-    defaultSettings: {},
-
     data: new Array(),
 
     initialize: function(obj, settings) {
@@ -23,7 +21,10 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
             width: '300',
             height: '150'
         };
-        settings = $.extend({}, defaultSettings, settings || {});
+
+        this.defaultSettings = $.extend({}, this.defaultSettings, defaultSettings || {});
+
+        settings = $.extend({}, this.defaultSettings, settings || {});
 
         WDB.Panel.prototype.initialize(obj, settings);
 
@@ -42,6 +43,25 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
 
         this.draw();
 
+    },
+
+    timer: function()
+    {
+        if (this.settings.url) {
+            var panelTimer = this;
+            setInterval(function(){
+                $.ajax({
+                    url: panelTimer.settings.url,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        panelTimer.data = data.values;
+                        panelTimer.settings.value = data.value;
+                        panelTimer.draw()
+                    }
+                });
+            }, 1500);
+        }
     },
 
     clearSvgElement: function() {

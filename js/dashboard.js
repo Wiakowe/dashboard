@@ -131,10 +131,10 @@ WDB.Dashboard = WDB.Class({
             return new WDB.Panel.Image(element, {'src': element.data('panel-src')});
         }
         if (element.data('panel-type') == 'panel.svg.lineBar') {
-            return new WDB.Panel.SVG.LineBar(element, {'values':element.data('panel-values').split(','), 'value': element.data('panel-value'), 'label': element.data('panel-text')});
+            return new WDB.Panel.SVG.LineBar(element, {'values':element.data('panel-values').split(','), 'value': element.data('panel-value'), 'label': element.data('panel-text'), 'url': element.data('panel-url')});
         }
         if (element.data('panel-type') == 'panel.svg.cake') {
-            return new WDB.Panel.SVG.Cake(element, {'values':element.data('panel-values').split(','), 'label': element.data('panel-text')});
+            return new WDB.Panel.SVG.Cake(element, {'values':element.data('panel-values').split(','), 'label': element.data('panel-text'), 'url': element.data('panel-url')});
         }
 
     }
