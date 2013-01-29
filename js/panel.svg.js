@@ -31,11 +31,11 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
         this.width = this.object.width();
         this.height = this.object.height();
 
-        var svgId = 'svg'+self.objectId;
+        var svgId = self.object.attr('id')+'Svg';
 
         this.object.html('<svg id="'+svgId+'" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>');
 
-        this.svgElement = $("#"+svgId);
+        this.svgElement = this.object.find("#"+svgId);
         this.svgElement.attr('width', this.width+"px");
         this.svgElement.attr('height', this.height+"px");
 

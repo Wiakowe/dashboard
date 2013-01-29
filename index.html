@@ -52,20 +52,7 @@
 		</style>
 	</head>
 	<body>
-        <ul id="dashboard">
-
-            <li id="jsBox" class="box boxInversed" data-panel-type="panel.text" data-panel-text="Iskoa"></li>
-
-            <li id="jsBox2" class="box" data-panel-type="panel.svg.lineBar" data-panel-values="0,1,1,2,3,4,5" data-panel-value="25€" data-panel-text="Ventas del día" data-panel-url="http://localhost/data.php"></li>
-
-            <li id="jsBox3" class="box" data-panel-type="panel.svg.cake" data-panel-values="50,35,10" data-panel-text="Ventas por tipo" data-panel-url="http://localhost/data.php"></li>
-
-            <li id="jsBox4" class="box" data-panel-type="panel.svg.cake" data-panel-values="65,35" data-panel-text="Ventas por género"></li>
-
-            <li id="jsBox5" class="box boxInversed" data-panel-type="panel.time"></li>
-
-            <li id="jsBox6" class="box" data-panel-type="panel.image" data-panel-src="http://fashionweb.local/img/logo_unisex.png?v1.11.5"></li>
-        </ul>
+        <div id="dashboard"></div>
         <script type="text/javascript" src="js/jquery.min.js" ></script>
         <script type="text/javascript" src="js/jquery.svg.js" ></script>
 
@@ -87,28 +74,57 @@
         <script type="text/javascript">
         $(function() {
 
-            /*
-            var dashboard = new WiakoweDashboardDashboard($("#dashboard"), {
-                'panelH': 3,
-                'panelV': 2
-            });
-            */
             $("#dashboard").dashboard({
                 'panelH': 3,
-                'panelV': 2
+                'panelV': 2,
+                'panels': [
+                    {
+                        'type': 'text',
+                        'text': 'Iskoa'
+                    },
+                    {
+                        'type': 'svg.lineBar',
+                        'values': [0,1,1,2,3],
+                        'value': '5€',
+                        'label': 'ventas del día'
+                    },
+                    {
+                        'type': 'svg.cake',
+                        'values': [50,30,20],
+                        'label': 'ventas por tipo'
+                    },
+                    {
+                        'type': 'svg.cake',
+                        'values': [30,60],
+                        'label': 'ventas por sexo'
+                    },
+                    {
+                        'type': 'time',
+                        'values': [50,30,20]
+                    },
+                    {
+                        'type': 'image',
+                        'src': 'http://fashionweb.local/img/logo_unisex.png'
+                    }
+
+                ]
             });
+
             /*
-            var textPanel = new WDB.Panel.Text($("#jsBox"), {'text': 'Iskoa'});
+            <ul id="dashboard">
 
-            var timePanel = new WDB.Panel.Time($("#jsBox5"));
+                    <li id="jsBox" class="box boxInversed" data-panel-type="panel.text" data-panel-text="Iskoa"></li>
 
-            var lineBar2 = new WDB.Panel.SVG.LineBar($("#jsBox2"), {'values':[0,1,1,2,3,4,5], 'value': '25€', 'label': 'ventas de día'});
+                    <li id="jsBox2" class="box" data-panel-type="panel.svg.lineBar" data-panel-values="0,1,1,2,3,4,5" data-panel-value="25€" data-panel-text="Ventas del día" data-panel-url="http://localhost/data.php"></li>
 
-            var lineBar6 = new WDB.Panel.SVG.LineBar($("#jsBox6"), {'values':[10,15,25,32,43,50, 65,69,73], 'value': '334€', 'label': 'ventas de mes'});
+                    <li id="jsBox3" class="box" data-panel-type="panel.svg.cake" data-panel-values="50,35,10" data-panel-text="Ventas por tipo" data-panel-url="http://localhost/data.php"></li>
 
-            var cake3 = new WDB.Panel.SVG.Cake($("#jsBox3"), {'values':[50,35,10], 'label': 'ventas por familia'});
+                    <li id="jsBox4" class="box" data-panel-type="panel.svg.cake" data-panel-values="65,35" data-panel-text="Ventas por género"></li>
 
-            var cake4 = new WDB.Panel.SVG.Cake($("#jsBox4"), {'values':[65, 35], 'label': 'ventas por género'});
+                    <li id="jsBox5" class="box boxInversed" data-panel-type="panel.time"></li>
+
+                    <li id="jsBox6" class="box" data-panel-type="panel.image" data-panel-src="http://fashionweb.local/img/logo_unisex.png?v1.11.5"></li>
+                    </ul>
             */
         })
         </script>

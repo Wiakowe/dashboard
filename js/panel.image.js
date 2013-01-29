@@ -13,7 +13,6 @@ WDB.Panel.Image = WDB.Class(WDB.Panel, {
         this.settings = this.settings;
 
         this.draw();
-
     },
 
     createElement: function() {
@@ -36,7 +35,6 @@ WDB.Panel.Image = WDB.Class(WDB.Panel, {
     },
 
     draw: function() {
-
         this.createElement();
         this.image.attr('src', this.settings.src);
 

@@ -79,8 +79,7 @@ WDB.Panel.SVG.LineBar = WDB.Class(WDB.Panel.SVG, {
                 path.setAttributeNS(null, "fill", (i % 2 == 0) ? colorEven : colorAdd);
                 path.setAttributeNS(null, "stroke", (i % 2 == 0) ? colorEven : colorAdd);
                 path.setAttributeNS(null, "stroke-width", '0.5');
-
-                this.svgElement.append(path);
+                $(this.svgElement).append(path);
             }
         }
         this.appendBoxValue();
