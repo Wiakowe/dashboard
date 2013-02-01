@@ -114,26 +114,24 @@ WDB.Dashboard = WDB.Class({
     {
         var ulContainer = $('<ul id="'+this.object.attr('id')+'" />');
 
+        ulContainer.css('margin', 0);
+        ulContainer.css('padding', 0);
+
         var dashboard = this;
 
         $(this.settings.panels).each(function(index, element) {
 
-            var liPanel = $('<li id="'+dashboard.object.attr('id')+'Panel'+index+'" class="box"></li>');
+            var liPanel = $('<li id="'+dashboard.object.attr('id')+'Panel'+index+'" class="dashboardPanel"></li>');
             dashboard.panelObjects.push(dashboard.createPanel(liPanel, element));
-            dashboard.panels.push(liPanel);
 
             ulContainer.append(liPanel)
         });
-        //get the panels
-        //this.panels = this.object.find(this.settings.panelsSelector);
 
         this.object.append(ulContainer);
-        /*
-        var dashboard = this;
-        this.panels.each(function(index, element) {
-            dashboard.panelObjects.push(dashboard.createPanel($(element)));
-        });
-        */
+
+        this.panels = this.object.find('li.dashboardPanel');
+
+        this.resizeDashboard();
     },
 
     createPanel: function(element, settings)

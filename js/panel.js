@@ -61,7 +61,7 @@ WDB.Panel = WDB.Class({
     appendBoxValue: function() {
         if (this.settings.value) {
             if (!this.valueText) {
-                this.valueText = $('<div class="boxValue"></div>');
+                this.valueText = $('<div class="dashboardPanelValue"></div>');
                 this.object.append(this.valueText);
             }
             this.valueText.text(this.settings.value);
@@ -73,7 +73,7 @@ WDB.Panel = WDB.Class({
     appendBoxLabel: function() {
         if (this.settings.label) {
             if (!this.labelText) {
-                this.labelText = $('<div class="boxLabel">'+this.settings.label+'</div>');
+                this.labelText = $('<div class="dashboardPanelLabel">'+this.settings.label+'</div>');
                 this.object.append(this.labelText);
             }
             this.labelText.text(this.settings.label);

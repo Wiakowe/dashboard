@@ -26,13 +26,13 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
     createElement: function() {
         this.valueText = $('#'+this.object.attr('id')+'TimerValue');
         if (!this.valueText.length) {
-            this.valueText = $('<div id="'+this.object.attr('id')+'TimerValue" class="boxValue"></div>');
+            this.valueText = $('<div id="'+this.object.attr('id')+'TimerValue" class="dashboardPanelValue"></div>');
             this.object.append(this.valueText);
         }
 
         this.labelText = $('#'+this.object.attr('id')+'DateValue');
         if (!this.labelText.length) {
-            this.labelText = $('<div id="'+this.object.attr('id')+'DateValue" class="boxLabel"></div>');
+            this.labelText = $('<div id="'+this.object.attr('id')+'DateValue" class="dashboardPanelLabel"></div>');
             this.object.append(this.labelText);
         }
     },

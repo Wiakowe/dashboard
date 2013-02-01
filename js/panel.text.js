@@ -21,7 +21,7 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
         this.valueText = $('#'+this.object.attr('id')+'TextValue');
 
         if (!this.valueText.length) {
-            this.valueText = $('<div id="'+this.object.attr('id')+'TextValue" class="boxValue"></div>');
+            this.valueText = $('<div id="'+this.object.attr('id')+'TextValue" class="dashboardPanelValue"></div>');
             this.object.append(this.valueText);
         }
     },
