@@ -23,20 +23,6 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
         }, 500);
     },
 
-    createElement: function() {
-        this.valueText = $('#'+this.object.attr('id')+'TimerValue');
-        if (!this.valueText.length) {
-            this.valueText = $('<div id="'+this.object.attr('id')+'TimerValue" class="dashboardPanelValue"></div>');
-            this.object.append(this.valueText);
-        }
-
-        this.labelText = $('#'+this.object.attr('id')+'DateValue');
-        if (!this.labelText.length) {
-            this.labelText = $('<div id="'+this.object.attr('id')+'DateValue" class="dashboardPanelLabel"></div>');
-            this.object.append(this.labelText);
-        }
-    },
-
     styleElement: function() {
         this.styleTextValue();
     },
@@ -47,13 +33,13 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
     draw: function() {
 
-        this.createElement();
-
         var today=new Date();
 
-        this.valueText.text(this.checkTime(today.getHours())+':'+this.checkTime(today.getMinutes())+':'+this.checkTime(today.getSeconds()));
+        this.settings.value = this.checkTime(today.getHours())+':'+this.checkTime(today.getMinutes())+':'+this.checkTime(today.getSeconds());
+        this.settings.label = this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear();
 
-        this.labelText.text(this.checkTime(today.getDate())+'/'+this.checkTime(today.getMonth()+1)+'/'+today.getFullYear());
+        this.appendBoxValue();
+        this.appendBoxLabel();
 
         this.styleElement();
     },

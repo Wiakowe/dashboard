@@ -59,6 +59,7 @@ WDB.Panel = WDB.Class({
     },
 
     appendBoxValue: function() {
+
         if (this.settings.value) {
             if (!this.valueText) {
                 this.valueText = $('<div class="dashboardPanelValue"></div>');

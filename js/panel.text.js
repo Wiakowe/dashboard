@@ -5,7 +5,7 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
     name: 'WDB.Panel.Text',
 
     initialize: function(obj, settings) {
-        if (!settings.text) {
+        if (!settings.value) {
             return false;
         }
 
@@ -17,15 +17,6 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
         this.draw();
     },
 
-    createElement: function() {
-        this.valueText = $('#'+this.object.attr('id')+'TextValue');
-
-        if (!this.valueText.length) {
-            this.valueText = $('<div id="'+this.object.attr('id')+'TextValue" class="dashboardPanelValue"></div>');
-            this.object.append(this.valueText);
-        }
-    },
-
     styleElement: function() {
         this.styleTextValue();
     },
@@ -35,9 +26,8 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
     },
 
     draw: function() {
-        this.createElement();
-
-        this.valueText.text(this.settings.text);
+        this.appendBoxValue();
+        this.appendBoxLabel();
 
         this.styleElement();
     }

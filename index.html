@@ -76,14 +76,19 @@
                 'panelV': 2,
                 'panels': [
                     {
-                        'type': 'text',
-                        'text': 'Iskoa'
+                        'type': 'image',
+                        'src': 'http://static.fashionweb.local/img/logo_unisex.png'
                     },
                     {
                         'type': 'svg.lineBar',
                         'values': [0,1,1,2,3],
                         'value': '5€',
-                        'label': 'ventas del día'
+                        'label': 'ventas del día',
+                        'url':   'http://localhost/data.php'
+                    },
+                    {
+                        'type': 'time',
+                        'values': [50,30,20]
                     },
                     {
                         'type': 'svg.cake',
@@ -91,18 +96,16 @@
                         'label': 'ventas por tipo'
                     },
                     {
+                        'type': 'text',
+                        'value': 'Wiakowe Dashboard',
+                        'label': 'Powered by'
+                    },
+                    {
                         'type': 'svg.cake',
                         'values': [30,60],
                         'label': 'ventas por sexo'
-                    },
-                    {
-                        'type': 'time',
-                        'values': [50,30,20]
-                    },
-                    {
-                        'type': 'image',
-                        'src': 'http://static.fashionweb.local/img/logo_unisex.png'
                     }
+
 
                 ]
             });
