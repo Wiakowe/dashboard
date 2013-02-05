@@ -26,8 +26,16 @@ WDB.Panel.Image = WDB.Class(WDB.Panel, {
     styleElement: function() {
         this.image.css('width', "90%");
 
-        this.image.css('margin-top', Math.round((this.object.height() - this.image.height()) / 2) + "px");
-        this.image.css('margin-left', Math.round((this.object.width() - this.image.width()) / 2) + "px")
+        //wait for loading the image
+        if ((this.object.height() == 0) || (this.image.height() == 0)) {
+            var panelImage = this;
+            setTimeout(function() {
+                panelImage.styleElement();
+            });
+        } else {
+            this.image.css('margin-top', Math.round((this.object.height() - this.image.height()) / 2) + "px");
+            this.image.css('margin-left', Math.round((this.object.width() - this.image.width()) / 2) + "px")
+        }
     },
 
     resize: function() {
