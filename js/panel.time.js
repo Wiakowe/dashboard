@@ -24,6 +24,7 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
     },
 
     styleElement: function() {
+        this.stylePanel();
         this.styleTextValue();
     },
 

@@ -24,6 +24,9 @@ WDB.Panel.Image = WDB.Class(WDB.Panel, {
     },
 
     styleElement: function() {
+
+        this.stylePanel();
+
         this.image.css('width', "90%");
 
         //wait for loading the image

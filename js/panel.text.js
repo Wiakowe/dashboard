@@ -18,6 +18,7 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
     },
 
     styleElement: function() {
+        this.stylePanel();
         this.styleTextValue();
     },
 

@@ -30,6 +30,8 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
     },
 
     styleElement: function() {
+        this.stylePanel();
+
         this.styleTextValue();
     },
 
