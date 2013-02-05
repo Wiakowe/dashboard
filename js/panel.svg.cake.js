@@ -4,7 +4,7 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
 
     initialize: function(obj, settings) {
 
-        if (!settings.values) {
+        if (!settings.values && !settings.url) {
             return false;
         }
 
@@ -15,6 +15,10 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
         this.object = this.object;
         this.svgElement = this.svgElement;
         this.settings = this.settings;
+
+        if (!this.data) {
+            this.ajaxLoad();
+        }
 
         this.draw();
 
@@ -43,6 +47,10 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
     },
 
     drawCake: function() {
+
+        if (!this.data) {
+            return false;
+        }
 
         var numElements = this.data.length;
 

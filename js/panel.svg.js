@@ -50,17 +50,26 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
         if (this.settings.url) {
             var panelTimer = this;
             setInterval(function(){
-                $.ajax({
-                    url: panelTimer.settings.url,
-                    method: 'get',
-                    dataType: 'json',
-                    success: function(data) {
-                        panelTimer.data = data.values;
-                        panelTimer.settings.value = data.value;
-                        panelTimer.draw()
-                    }
-                });
+                panelTimer.ajaxLoad();
             }, 1500);
+        }
+    },
+
+    ajaxLoad: function()
+    {
+        if (this.settings.url) {
+            var panelTimer = this;
+
+            $.ajax({
+                url: panelTimer.settings.url,
+                method: 'get',
+                dataType: 'json',
+                success: function(data) {
+                    panelTimer.data = data.values;
+                    panelTimer.settings.value = data.value;
+                    panelTimer.draw()
+                }
+            });
         }
     },
 
