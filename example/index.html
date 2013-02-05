@@ -50,23 +50,23 @@
 	</head>
 	<body>
         <div id="dashboard"></div>
-        <script type="text/javascript" src="js/jquery.min.js" ></script>
-        <script type="text/javascript" src="js/jquery.svg.js" ></script>
+        <script type="text/javascript" src="../js/jquery.min.js" ></script>
+        <script type="text/javascript" src="../js/jquery.svg.js" ></script>
 
-        <script type="text/javascript" src="js/class.js" ></script>
+        <script type="text/javascript" src="../js/class.js" ></script>
 
-        <script type="text/javascript" src="js/panel.js" ></script>
-        <script type="text/javascript" src="js/panel.text.js" ></script>
-        <script type="text/javascript" src="js/panel.time.js" ></script>
-        <script type="text/javascript" src="js/panel.image.js" ></script>
-
-
-        <script type="text/javascript" src="js/panel.svg.js" ></script>
-        <script type="text/javascript" src="js/panel.svg.linebar.js" ></script>
-        <script type="text/javascript" src="js/panel.svg.cake.js" ></script>
+        <script type="text/javascript" src="../js/panel.js" ></script>
+        <script type="text/javascript" src="../js/panel.text.js" ></script>
+        <script type="text/javascript" src="../js/panel.time.js" ></script>
+        <script type="text/javascript" src="../js/panel.image.js" ></script>
 
 
-        <script type="text/javascript" src="js/dashboard.js" ></script>
+        <script type="text/javascript" src="../js/panel.svg.js" ></script>
+        <script type="text/javascript" src="../js/panel.svg.linebar.js" ></script>
+        <script type="text/javascript" src="../js/panel.svg.cake.js" ></script>
+
+
+        <script type="text/javascript" src="../js/dashboard.js" ></script>
 
         <script type="text/javascript">
         $(function() {
@@ -76,34 +76,36 @@
                 'panelV': 2,
                 'panels': [
                     {
-                        'type': 'image',
-                        'src': 'http://static.fashionweb.local/img/logo_unisex.png'
+                        'type':     'image',
+                        'src':      'http://static.fashionweb.local/img/logo_unisex.png'
                     },
                     {
-                        'type': 'svg.lineBar',
-                        'values': [0,1,1,2,3],
-                        'value': '5€',
-                        'label': 'Ventas del día',
-                        'url':   'http://localhost/data.php'
+                        'type':     'svg.lineBar',
+                        'values':   [0,1,1,2,3],
+                        'value':    '5€',
+                        'label':    'Ventas del día',
+                        'url':      'data/data.line.php'
                     },
                     {
-                        'type': 'time',
-                        'values': [50,30,20]
+                        'type':     'time',
+                        'values':   [50,30,20]
                     },
                     {
-                        'type': 'svg.cake',
-                        'values': [50,30,20],
-                        'label': 'Ventas por tipo'
+                        'type':     'svg.cake',
+                        'values':   [50,30,20],
+                        'label':    'Ventas por tipo',
+                        'url':      'data/data.cake1.php'
                     },
                     {
-                        'type': 'text',
-                        'value': 'Wiakowe',
-                        'label': 'Powered by'
+                        'type':     'text',
+                        'value':    'Wiakowe',
+                        'label':    'Powered by'
                     },
                     {
-                        'type': 'svg.cake',
-                        'values': [30,60],
-                        'label': 'Ventas por sexo'
+                        'type':     'svg.cake',
+                        'values':   [30,60],
+                        'label':    'Ventas por sexo',
+                        'url':      'data/data.cake2.php'
                     }
 
 
