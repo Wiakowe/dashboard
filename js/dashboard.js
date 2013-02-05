@@ -28,7 +28,7 @@ WDB.Dashboard = WDB.Class({
         this.object = obj;
 
         this.panelObjects = new Array();
-
+        this.panels = new Array();
 
         //set body css
         $('body').css('margin', '0px');
@@ -37,10 +37,9 @@ WDB.Dashboard = WDB.Class({
         this.object.css('margin', '10px 0 0 10px');
         this.object.css('padding', '0px');
 
-        //get the panels
-        this.panels = this.object.find(this.settings.panelsSelector);
+        this.createPanels();
 
-        this.drawDashboard();
+        //this.drawDashboard();
 
         $(window).resize(function() {
             self.resizeDashboard();
@@ -113,30 +112,44 @@ WDB.Dashboard = WDB.Class({
 
     createPanels: function()
     {
+        var ulContainer = $('<ul id="'+this.object.attr('id')+'" />');
+
+        ulContainer.css('margin', 0);
+        ulContainer.css('padding', 0);
+
         var dashboard = this;
-        this.panels.each(function(index, element) {
-            dashboard.panelObjects.push(dashboard.createPanel($(element)));
+
+        $(this.settings.panels).each(function(index, element) {
+
+            var liPanel = $('<li id="'+dashboard.object.attr('id')+'Panel'+index+'" class="dashboardPanel"></li>');
+            dashboard.panelObjects.push(dashboard.createPanel(liPanel, element));
+
+            ulContainer.append(liPanel)
         });
+
+        this.object.append(ulContainer);
+
+        this.panels = this.object.find('li.dashboardPanel');
+
+        this.resizeDashboard();
     },
 
-    createPanel: function(element)
+    createPanel: function(element, settings)
     {
-        if (element.data('panel-type') == 'panel.text') {
-            return new WDB.Panel.Text(element, {'text': element.data('panel-text')});
+        if (settings.type == 'text') {
+            return new WDB.Panel.Text(element, settings);
         }
-        if (element.data('panel-type') == 'panel.time') {
-            return new WDB.Panel.Time(element);
+        if (settings.type == 'time') {
+            return new WDB.Panel.Time(element, settings);
         }
-        if (element.data('panel-type') == 'panel.image') {
-            return new WDB.Panel.Image(element, {'src': element.data('panel-src')});
+        if (settings.type == 'image') {
+            return new WDB.Panel.Image(element, settings);
         }
-        if (element.data('panel-type') == 'panel.svg.lineBar') {
-            return new WDB.Panel.SVG.LineBar(element, {'values':element.data('panel-values').split(','), 'value': element.data('panel-value'), 'label': element.data('panel-text'), 'url': element.data('panel-url')});
+        if (settings.type == 'svg.lineBar') {
+            return new WDB.Panel.SVG.LineBar(element, settings);
         }
-        if (element.data('panel-type') == 'panel.svg.cake') {
-            return new WDB.Panel.SVG.Cake(element, {'values':element.data('panel-values').split(','), 'label': element.data('panel-text'), 'url': element.data('panel-url')});
+        if (settings.type == 'svg.cake') {
+            return new WDB.Panel.SVG.Cake(element, settings);
         }
-
     }
-
 })
