@@ -19,7 +19,8 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
         defaultSettings= {
             svgns: 'http://www.w3.org/2000/svg',
             width: '300',
-            height: '150'
+            height: '150',
+            timeInterval: 1500
         };
 
         this.defaultSettings = $.extend({}, this.defaultSettings, defaultSettings || {});
@@ -51,7 +52,7 @@ WDB.Panel.SVG = WDB.Class(WDB.Panel, {
             var panelTimer = this;
             setInterval(function(){
                 panelTimer.ajaxLoad();
-            }, 1500);
+            }, panelTimer.settings.timeInterval);
         }
     },
 
