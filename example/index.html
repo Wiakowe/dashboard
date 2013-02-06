@@ -8,9 +8,6 @@
 			}
 
 			.dashboardPanel {
-				background-color: #BBBBBB;
-				width: 300px;
-				height: 150px;
 				float: left;
 				display: inline;
 				border: 3px solid #666;
@@ -23,7 +20,6 @@
                 text-align: center;
                 font-family: Arial;
                 font-size: 5em;
-                color: #EEE;
                 text-shadow: 0px -1px 0px #333;
                 font-weight: bold;
                 width: 100%;
@@ -37,7 +33,6 @@
                 text-align: center;
                 font-family: Arial;
                 font-size: 1.5em;
-                color: #EFEFEF;
                 font-weight: bold;
                 width: 100%;
                 text-align: left;
@@ -85,7 +80,11 @@
                         'url':      'data/data.line.php'
                     },
                     {
-                        'type':     'time'
+                        'type':     'time',
+                        'style': {
+                            'backgroundColor': '#FC3370'
+                        }
+
                     },
                     {
                         'type':     'svg.cake',
@@ -95,7 +94,10 @@
                     {
                         'type':     'text',
                         'value':    'Wiakowe',
-                        'label':    'Powered by'
+                        'label':    'Powered by',
+                        'style': {
+                            'backgroundColor': '#FC3370'
+                        }
                     },
                     {
                         'type':     'svg.cake',

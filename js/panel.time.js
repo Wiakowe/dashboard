@@ -11,6 +11,8 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
         this.draw();
 
+        this.stylePanel();
+
         this.timer();
     },
 
@@ -24,7 +26,6 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
     },
 
     styleElement: function() {
-        this.stylePanel();
         this.styleTextValue();
     },
 

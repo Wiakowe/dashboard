@@ -21,27 +21,18 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
         }
 
         this.draw();
-
+        this.stylePanel();
         this.timer();
     },
 
-    createElement: function() {
-
-    },
-
     styleElement: function() {
-        this.stylePanel();
-
         this.styleTextValue();
     },
 
     resize: function() {
         this.resizeSvgElement();
-
         this.drawCake();
-
         this.styleElement();
-
     },
 
     draw: function() {
@@ -61,9 +52,6 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
         for (var i = 0; i < numElements; i++) {
             sumValues += parseInt(this.data[i]);
         }
-
-        var colorEven = '#FC3370';
-        var colorAdd = '#D8295D';
 
         var margin = 15;
 
@@ -100,8 +88,8 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
             endY = centerY - Math.sin(sumAngle)*length;
 
             path.setAttributeNS(null, "d", "M"+centerX+" "+centerY+" L"+startX+" "+startY+" A"+length+" "+length+" 0 0 1 "+endX+" "+endY+" Z");
-            path.setAttributeNS(null, "fill", (i % 2 == 0) ? colorEven : colorAdd);
-            path.setAttributeNS(null, "stroke", colorAdd);
+            path.setAttributeNS(null, "fill", (i % 2 == 0) ? this.settings.style.colorEven : this.settings.style.colorOdd);
+            path.setAttributeNS(null, "stroke", this.settings.style.colorOdd);
             path.setAttributeNS(null, "stroke-width", '0.5');
 
             this.svgElement.append(path);

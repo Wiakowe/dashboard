@@ -15,10 +15,11 @@ WDB.Panel.Text = WDB.Class(WDB.Panel, {
         this.settings = this.settings;
 
         this.draw();
+
+        this.stylePanel();
     },
 
     styleElement: function() {
-        this.stylePanel();
         this.styleTextValue();
     },
 

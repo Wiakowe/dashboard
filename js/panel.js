@@ -23,7 +23,6 @@ WDB.Panel = WDB.Class({
 
     initialize: function(obj, settings) {
 
-        this.settings = new Array();
         this.settings = $.extend({}, this.defaultSettings, settings || {});
 
         this.object = obj;
@@ -40,6 +39,7 @@ WDB.Panel = WDB.Class({
 
     stylePanel: function() {
         this.object.css('background-color', this.settings.style.backgroundColor);
+        this.object.css('color', this.settings.style.color);
     },
 
     styleTextValue: function() {

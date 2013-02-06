@@ -20,10 +20,21 @@ WDB.Dashboard = WDB.Class({
             'marginH':          '10px',
             'panelH' :          '4',
             'panelV' :          '3',
-            'panelsSelector':   'li'
+            'panelsSelector':   'li',
+            'panelsSettings': {
+                style: {
+                    backgroundColor: '#BBB',
+                    color: '#EFEFEF',
+                    colorOdd: '#D8295D',
+                    colorEven: '#FC3370'
+                }
+            }
         };
 
+        var panelSettings = $.extend({}, defaultSettings.panelsSettings, settings.panelsSettings || {});
         this.settings = $.extend({}, defaultSettings, settings || {});
+
+        this.settings.panelsSettings = panelSettings;
 
         this.object = obj;
 
@@ -136,6 +147,10 @@ WDB.Dashboard = WDB.Class({
 
     createPanel: function(element, settings)
     {
+        var style = $.extend({}, this.settings.panelsSettings.style, settings.style || {});
+        settings = $.extend({}, this.settings.panelsSettings, settings || {});
+        settings.style = style;
+
         if (settings.type == 'text') {
             return new WDB.Panel.Text(element, settings);
         }
