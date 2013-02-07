@@ -2,47 +2,8 @@
 	<head>
         <title>SVG Dashboard</title>
         <meta charset="utf-8" />
-        <style>
-			body {
-				background-color: #FFF;
-			}
-
-			.dashboardPanel {
-				float: left;
-				display: inline;
-				border: 3px solid #666;
-                position: relative;
-                margin: 0 10px 10px 0;
-			}
-
-            .dashboardPanelValue {
-                position: absolute;
-                text-align: center;
-                font-family: Arial;
-                font-size: 5em;
-                text-shadow: 0px -1px 0px #333;
-                font-weight: bold;
-                width: 100%;
-                line-height: 150px;
-                top: 0;
-                left: 0;
-            }
-
-            .dashboardPanelLabel {
-                position: absolute;
-                text-align: center;
-                font-family: Arial;
-                font-size: 1.5em;
-                font-weight: bold;
-                width: 100%;
-                text-align: left;
-                top: 0px;
-                text-indent: 10px;
-                left: 0px;
-                text-shadow: 0px -1px 0px #333;
-            }
-		</style>
-	</head>
+        <link href="../css/default.css" media="screen" type="text/css" rel="stylesheet" />
+    </head>
 	<body>
         <div id="dashboard"></div>
         <script type="text/javascript" src="../js/jquery.min.js" ></script>
@@ -81,9 +42,7 @@
                     },
                     {
                         'type':     'time',
-                        'style': {
-                            'backgroundColor': '#FC3370'
-                        }
+                        'class':    'dashboardPanelAlternative'
 
                     },
                     {
@@ -95,9 +54,7 @@
                         'type':     'text',
                         'value':    'Wiakowe',
                         'label':    'Powered by',
-                        'style': {
-                            'backgroundColor': '#FC3370'
-                        }
+                        'class':    'dashboardPanelAlternative'
                     },
                     {
                         'type':     'svg.cake',

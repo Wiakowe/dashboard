@@ -38,8 +38,6 @@ WDB.Panel = WDB.Class({
     },
 
     stylePanel: function() {
-        this.object.css('background-color', this.settings.style.backgroundColor);
-        this.object.css('color', this.settings.style.color);
     },
 
     styleTextValue: function() {

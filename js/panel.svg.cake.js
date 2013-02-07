@@ -88,8 +88,8 @@ WDB.Panel.SVG.Cake = WDB.Class(WDB.Panel.SVG, {
             endY = centerY - Math.sin(sumAngle)*length;
 
             path.setAttributeNS(null, "d", "M"+centerX+" "+centerY+" L"+startX+" "+startY+" A"+length+" "+length+" 0 0 1 "+endX+" "+endY+" Z");
-            path.setAttributeNS(null, "fill", (i % 2 == 0) ? this.settings.style.colorEven : this.settings.style.colorOdd);
-            path.setAttributeNS(null, "stroke", this.settings.style.colorOdd);
+            path.setAttributeNS(null, "fill", (i % 2 == 0) ? this.settings.colorEven : this.settings.colorOdd);
+            path.setAttributeNS(null, "stroke", this.settings.colorOdd);
             path.setAttributeNS(null, "stroke-width", '0.5');
 
             this.svgElement.append(path);
