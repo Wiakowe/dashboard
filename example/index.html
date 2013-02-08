@@ -32,13 +32,10 @@
                 'panelV': 2,
                 'panels': [
                     {
-                        'type':     'image',
-                        'src':      'http://static.fashionweb.local/img/logo_unisex.png'
-                    },
-                    {
                         'type':     'svg.lineBar',
-                        'label':    'Ventas del día',
-                        'url':      'data/data.line.php'
+                        'label':    'Static linebar',
+                        'values':   [0, 10, 10, 20, 25, 28, 30, 32, 50, 50],
+                        'value':    'Fixed'
                     },
                     {
                         'type':     'time',
@@ -46,8 +43,13 @@
 
                     },
                     {
+                        'type':     'svg.lineBar',
+                        'label':    'Dynamic linebar',
+                        'url':      'data/data.line.php'
+                    },
+                    {
                         'type':     'svg.cake',
-                        'label':    'Ventas por tipo',
+                        'label':    'Dynamic Cake',
                         'url':      'data/data.cake1.php'
                     },
                     {
@@ -58,15 +60,12 @@
                     },
                     {
                         'type':     'svg.cake',
-                        'label':    'Ventas por sexo',
-                        'url':      'data/data.cake2.php'
+                        'label':    'Static Cake',
+                        'values':   [10, 5, 20, 10, 5]
                     }
-
-
                 ]
             });
         })
         </script>
-
 	</body>
 </html>
