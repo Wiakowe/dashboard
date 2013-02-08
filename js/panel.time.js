@@ -11,6 +11,8 @@ WDB.Panel.Time = WDB.Class(WDB.Panel, {
 
         this.draw();
 
+        this.stylePanel();
+
         this.timer();
     },
 

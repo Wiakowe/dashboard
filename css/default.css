@@ -1,0 +1,53 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.dashboard {
+    background-color: #EFEFEF;
+    padding: 10px 0 0 10px;
+    margin: 0px;
+    float: left;
+}
+
+.dashboardPanel {
+    float: left;
+    display: inline;
+    background-color: #BBB;
+    color: #EFEFEF;
+    border: 3px solid #666;
+    position: relative;
+    margin: 0 10px 10px 0;
+}
+
+.dashboardPanelAlternative {
+    background-color: #FC3370;
+}
+
+.dashboardPanelValue {
+    position: absolute;
+    text-align: center;
+    font-family: Arial;
+    font-size: 5em;
+    text-shadow: 0px -1px 0px #333;
+    font-weight: bold;
+    width: 100%;
+    line-height: 150px;
+    top: 0;
+    left: 0;
+}
+
+.dashboardPanelLabel {
+    position: absolute;
+    text-align: center;
+    font-family: Arial;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    top: 0px;
+    text-indent: 10px;
+    left: 0px;
+    text-shadow: 0px -1px 0px #333;
+}
+

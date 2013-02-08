@@ -2,52 +2,8 @@
 	<head>
         <title>SVG Dashboard</title>
         <meta charset="utf-8" />
-        <style>
-			body {
-				background-color: #FFF;
-			}
-
-			.dashboardPanel {
-				background-color: #BBBBBB;
-				width: 300px;
-				height: 150px;
-				float: left;
-				display: inline;
-				border: 3px solid #666;
-                position: relative;
-                margin: 0 10px 10px 0;
-			}
-
-            .dashboardPanelValue {
-                position: absolute;
-                text-align: center;
-                font-family: Arial;
-                font-size: 5em;
-                color: #EEE;
-                text-shadow: 0px -1px 0px #333;
-                font-weight: bold;
-                width: 100%;
-                line-height: 150px;
-                top: 0;
-                left: 0;
-            }
-
-            .dashboardPanelLabel {
-                position: absolute;
-                text-align: center;
-                font-family: Arial;
-                font-size: 1.5em;
-                color: #EFEFEF;
-                font-weight: bold;
-                width: 100%;
-                text-align: left;
-                top: 0px;
-                text-indent: 10px;
-                left: 0px;
-                text-shadow: 0px -1px 0px #333;
-            }
-		</style>
-	</head>
+        <link href="../css/default.css" media="screen" type="text/css" rel="stylesheet" />
+    </head>
 	<body>
         <div id="dashboard"></div>
         <script type="text/javascript" src="../js/jquery.min.js" ></script>
@@ -76,38 +32,40 @@
                 'panelV': 2,
                 'panels': [
                     {
-                        'type':     'image',
-                        'src':      'http://static.fashionweb.local/img/logo_unisex.png'
+                        'type':     'svg.lineBar',
+                        'label':    'Static linebar',
+                        'values':   [0, 10, 10, 20, 25, 28, 30, 32, 50, 50],
+                        'value':    'Fixed'
+                    },
+                    {
+                        'type':     'time',
+                        'class':    'dashboardPanelAlternative'
+
                     },
                     {
                         'type':     'svg.lineBar',
-                        'label':    'Ventas del día',
+                        'label':    'Dynamic linebar',
                         'url':      'data/data.line.php'
                     },
                     {
-                        'type':     'time'
-                    },
-                    {
                         'type':     'svg.cake',
-                        'label':    'Ventas por tipo',
+                        'label':    'Dynamic Cake',
                         'url':      'data/data.cake1.php'
                     },
                     {
                         'type':     'text',
                         'value':    'Wiakowe',
-                        'label':    'Powered by'
+                        'label':    'Powered by',
+                        'class':    'dashboardPanelAlternative'
                     },
                     {
                         'type':     'svg.cake',
-                        'label':    'Ventas por sexo',
-                        'url':      'data/data.cake2.php'
+                        'label':    'Static Cake',
+                        'values':   [10, 5, 20, 10, 5]
                     }
-
-
                 ]
             });
         })
         </script>
-
 	</body>
 </html>

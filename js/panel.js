@@ -8,7 +8,10 @@ WDB.Panel = WDB.Class({
     defaultSettings: {
         fontMaxSize: 40,
         fontValueMaxSize: 40,
-        fontLabelMaxSize: 10
+        fontLabelMaxSize: 10,
+        style: {
+            backgroundColor: '#BBBBBB'
+        }
     },
 
     self: null,
@@ -20,7 +23,6 @@ WDB.Panel = WDB.Class({
 
     initialize: function(obj, settings) {
 
-        this.settings = new Array();
         this.settings = $.extend({}, this.defaultSettings, settings || {});
 
         this.object = obj;
@@ -33,6 +35,9 @@ WDB.Panel = WDB.Class({
     },
 
     draw: function() {
+    },
+
+    stylePanel: function() {
     },
 
     styleTextValue: function() {

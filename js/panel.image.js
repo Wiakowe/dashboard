@@ -17,6 +17,9 @@ WDB.Panel.Image = WDB.Class(WDB.Panel, {
 
     createElement: function() {
         this.image = $('#'+this.object.attr('id')+'Image');
+
+        this.stylePanel();
+
         if (!this.image.length) {
             this.image = $('<img id="'+this.object.attr('id')+'Image" src="">');
             this.object.append(this.image);
@@ -24,6 +27,7 @@ WDB.Panel.Image = WDB.Class(WDB.Panel, {
     },
 
     styleElement: function() {
+
         this.image.css('width', "90%");
 
         //wait for loading the image

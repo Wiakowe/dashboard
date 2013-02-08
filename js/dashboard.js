@@ -20,22 +20,26 @@ WDB.Dashboard = WDB.Class({
             'marginH':          '10px',
             'panelH' :          '4',
             'panelV' :          '3',
-            'panelsSelector':   'li'
+            'panelsSelector':   'li',
+            'panelsSettings': {
+                colorOdd: '#D8295D',
+                colorEven: '#FC3370'
+            }
         };
 
+        var panelSettings = $.extend({}, defaultSettings.panelsSettings, settings.panelsSettings || {});
         this.settings = $.extend({}, defaultSettings, settings || {});
+
+        this.settings.panelsSettings = panelSettings;
 
         this.object = obj;
 
+        this.object.css('padding', 0);
+        this.object.css('margin', 0);
+        this.object.css('float', 'left');
+
         this.panelObjects = new Array();
         this.panels = new Array();
-
-        //set body css
-        $('body').css('margin', '0px');
-        $('body').css('padding', '0px');
-
-        this.object.css('margin', '10px 0 0 10px');
-        this.object.css('padding', '0px');
 
         this.createPanels();
 
@@ -73,9 +77,8 @@ WDB.Dashboard = WDB.Class({
         //set the default CSS data for the panels
         this.panels.width(this.panelWidth);
         this.panels.height(this.panelHeight);
-        this.panels.css('float', 'left');
-        this.panels.css('padding', '0px')
-        this.panels.css('margin', '0 '+this.settings.marginH+' '+this.settings.marginV+' 0');
+        this.panels.css('margin-right', this.settings.marginV);
+        this.panels.css('margin-bottom', this.settings.marginH);
 
     },
 
@@ -112,16 +115,18 @@ WDB.Dashboard = WDB.Class({
 
     createPanels: function()
     {
-        var ulContainer = $('<ul id="'+this.object.attr('id')+'" />');
-
-        ulContainer.css('margin', 0);
-        ulContainer.css('padding', 0);
+        var ulContainer = $('<ul id="'+this.object.attr('id')+'" class="dashboard"/>');
 
         var dashboard = this;
 
         $(this.settings.panels).each(function(index, element) {
 
-            var liPanel = $('<li id="'+dashboard.object.attr('id')+'Panel'+index+'" class="dashboardPanel"></li>');
+
+            var panelClass= "dashboardPanel";
+            if (element.class) {
+                panelClass += " "+element.class;
+            }
+            var liPanel = $('<li id="'+dashboard.object.attr('id')+'Panel'+index+'" class="'+panelClass+'"></li>');
             dashboard.panelObjects.push(dashboard.createPanel(liPanel, element));
 
             ulContainer.append(liPanel)
@@ -136,6 +141,8 @@ WDB.Dashboard = WDB.Class({
 
     createPanel: function(element, settings)
     {
+        settings = $.extend({}, this.settings.panelsSettings, settings || {});
+
         if (settings.type == 'text') {
             return new WDB.Panel.Text(element, settings);
         }
