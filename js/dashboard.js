@@ -121,10 +121,10 @@ WDB.Dashboard = WDB.Class({
 
         $(this.settings.panels).each(function(index, element) {
 
-
             var panelClass= "dashboardPanel";
-            if (element.class) {
-                panelClass += " "+element.class;
+
+            if (element.style) {
+                panelClass += " "+element.style;
             }
             var liPanel = $('<li id="'+dashboard.object.attr('id')+'Panel'+index+'" class="'+panelClass+'"></li>');
             dashboard.panelObjects.push(dashboard.createPanel(liPanel, element));
